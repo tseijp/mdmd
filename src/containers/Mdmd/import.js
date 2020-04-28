@@ -22,10 +22,11 @@ import Definition     from '../../components/Definition'    ;//definition - Defi
 import Heading        from '../../components/Heading'       ;//heading - Heading (<h1>-<h6>)
 import InlineCode     from '../../components/InlineCode'    ;//inlineCode - Inline code (<code>)
 import Code           from '../../components/Code'          ;//code - Block of code (<pre><code>)
+/*TODO
 import Html           from '../../components/Html'          ;//html - HTML node (Best-effort rendering)
 import VirtualHtml    from '../../components/VirtualHtml'   ;//virtualHtml - When not using the HTML parser plugin, a cheap and dirty approach to supporting simple HTML elements without a complete parser.
 import ParsedHtml     from '../../components/ParsedHtml'    ;//parsedHtml - When using the HTML parser plugin, HTML parsed to a React element.
-
+*/
 export {
     Root           as root,
     Text           as text,
@@ -51,7 +52,9 @@ export {
     Heading        as heading,
     InlineCode     as ilineCode,
     Code           as code,
+/*TODO
     Html           as html,
     VirtualHtml    as virtualHtml,
     ParsedHtml     as parsedHtml,
+*/
 };
