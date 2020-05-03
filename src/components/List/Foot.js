@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const Mdmd = (props) => {
-    const {children,color,getArray,getText,getLink} = props;
+    const {children,/*color,*/getArray,getText,getLink} = props;
     const className = 'footer-copyright text-center font-small py-3'+props.className;
     const style ={position:"relative",bottom:"0",overflow:"hidden",
                 maxWidth:"99vw",left:"50%",right:"50%",marginLeft:"-50vw",marginRight:"-50vw"}

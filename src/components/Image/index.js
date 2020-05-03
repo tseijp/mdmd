@@ -2,7 +2,6 @@ import React from 'react';
 import {MDBIcon} from 'mdbreact';
 import PropTypes from 'prop-types';
 
-import Embed from './Embed';
 import Image from './Image';
 
 const Mdmd = (props) => {
@@ -17,8 +16,8 @@ const Mdmd = (props) => {
     )).every(key=>key.match('emphasis'));
     const level = is_3?3:is_2?2:is_1?1:0
     const state = {alt,src,children,level,className,color,style}
-    if (src.match('https://youtube.com'))
-        return <Embed {...state}/>
+    //if (src.match('https://youtube.com'))
+    //    return <Embed {...state}/>
     if (alt.slice(0,1).match(':'))
         return <MDBIcon icon={alt.slice(1)}/>
     return <Image {...state}/>

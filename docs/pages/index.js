@@ -1,6 +1,6 @@
 import React from 'react';
 import {MDBContainer,MDBFreeBird,MDBEdgeHeader} from 'mdbreact';
-import Mdmd from '../../src';
+import Mdmd from './mdmd';
 
 import About     from './About.md';
 import Basic     from './Basic.md';
