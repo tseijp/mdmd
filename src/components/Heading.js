@@ -1,19 +1,33 @@
 import React from 'react';
-//import Radium from 'radium';
 import PropTypes from 'prop-types';
-//import classNames from 'classnames';
-
-const Mdmd = (props) => {
-    //const {active, className} = props;
-    return <div>COMING SOON</div>;
+import { MDBTypography } from 'mdbreact'
+const Heading = (props) => {
+    const {abbr, active, variant, className, color, style} = props;
+    const state = {abbr, active, className, color, style}
+    const addvariant = variant?'-'+variant:''
+    return <MDBTypography {...state}
+                tag={"h"+props.level}
+                variant={`h${props.level}${addvariant}`}>
+                {props.children}</MDBTypography>;
 };
 
-Mdmd.propTypes = {
-    active: PropTypes.bool,
+Heading.propTypes = {
+    className: PropTypes.string,
+    color    : PropTypes.string,
+    style    : PropTypes.object,
 };
 
-Mdmd.defaultProps = {
-  active: false,
+Heading.defaultProps = {
+  //active: false,
+  abbr:'false', //error if not here
   className: '',
+  color:'',
+  style:{},
+  variant:'display'
 };
-export default Mdmd;
+export default Heading;
+
+/*props
+props.children
+props.level
+*/

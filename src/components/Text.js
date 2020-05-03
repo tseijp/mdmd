@@ -4,16 +4,21 @@ import PropTypes from 'prop-types';
 //import classNames from 'classnames';
 
 const Mdmd = (props) => {
-    //const {active, className} = props;
-    return <div>COMING SOON</div>;
+    const {color, style} = props;
+    const className = (color?`${color}-text `:'')+props.className
+    const state =  {className, color, style};
+    return <span {...state}>{props.children}</span>
 };
 
 Mdmd.propTypes = {
-    active: PropTypes.bool,
+    className: PropTypes.string,
+    color: PropTypes.string,
+    style: PropTypes.object,
 };
 
 Mdmd.defaultProps = {
-  active: false,
-  className: '',
+    className: '',
+    color:'',
+    style:{},
 };
 export default Mdmd;

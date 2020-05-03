@@ -2,18 +2,25 @@ import React from 'react';
 //import Radium from 'radium';
 import PropTypes from 'prop-types';
 //import classNames from 'classnames';
-
-const Mdmd = (props) => {
-    //const {active, className} = props;
-    return <div>COMING SOON</div>;
+import {MDBContainer} from 'mdbreact';
+const Root = (props) => {
+    const {className, color, style} = props;
+    const state = {className, color, style}
+    return <MDBContainer {...state}>{props.children}</MDBContainer>;
 };
 
-Mdmd.propTypes = {
-    active: PropTypes.bool,
+Root.propTypes = {
+    className: PropTypes.string,
+    color    : PropTypes.string,
+    style    : PropTypes.object,
 };
 
-Mdmd.defaultProps = {
-  active: false,
-  className: '',
+Root.defaultProps = {
+    className: '',
+    coor :'',
+    style:{},
 };
-export default Mdmd;
+export default Root;
+/*props
+  - children
+*/

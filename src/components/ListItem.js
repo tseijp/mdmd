@@ -2,18 +2,23 @@ import React from 'react';
 //import Radium from 'radium';
 import PropTypes from 'prop-types';
 //import classNames from 'classnames';
-
-const Mdmd = (props) => {
-    //const {active, className} = props;
-    return <div>COMING SOON</div>;
+import {MDBListGroupItem} from 'mdbreact';
+const ListItem = (props) => {
+    const {className, color, style} = props;
+    const state = {className, color, style}
+    return <MDBListGroupItem {...state}>
+            {props.children}</MDBListGroupItem>;
 };
 
-Mdmd.propTypes = {
-    active: PropTypes.bool,
+ListItem.propTypes = {
+    className: PropTypes.string,
+    color    : PropTypes.string,
+    style    : PropTypes.object,
 };
 
-Mdmd.defaultProps = {
+ListItem.defaultProps = {
   active: false,
+  color:"light",
   className: '',
 };
-export default Mdmd;
+export default ListItem;

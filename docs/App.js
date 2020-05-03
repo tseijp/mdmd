@@ -1,15 +1,21 @@
 import React from 'react';
-import Mdmd from '../src';
-;//import logo from './logo.svg';
-//import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
-    const source = "# Hi \nmy name is t%sei"
-    return (
-        <div className="App">
-            <Mdmd source={source}/>
-        </div>
-    );
+import * as Pages from './pages';
+
+class App extends React.Component {
+    render () {
+        return (
+            <Router>
+                <Switch>
+                    {Object.keys(Pages).map((key, i)=>
+                        <Route key={key} exact path={'/'+key} component={Pages[key]} />
+                    )}
+                    <Route render={()=><h1>Not Found</h1>}/>
+                </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;

@@ -2,38 +2,58 @@
 
 [ref](https://mdbootstrap.com/docs/react/)
 
-# Getting started
+# About
 ## About mdmd
 ## Install mdmd
-## Quick start
+## Get Start mdmd
 
-# Usage
-## Heading
-## Paragraph
-## ListGroup
-## Link       (with some service)
-## Labels & Badges    (by strong)
+***
+
+# Basic
+\## Heading
+\## Paragraph
+## Code (by Code \`\`)
+## Math  (by \$\$)
+
+***
+
+# Component (by link and image)
+\## Link  (by\[alt\](href))
+\## Button(by\[_alt_\](href))
+\## Image (by!\[alt\](href))
+## Embed  (by!\[alt\](href))
+## Snipper(by!\[:snipper\])
+## Icons  (by!\[:->\] ![:-<])
+## Pbar   (by!\[0.9\]())
+
+# Container
+\## ListGroup
+## Collapse   (by list if one \[~~A~~\]() and text)
+## Dropdown   (by list if one \[~~A~~\]() and \[alt\](link))
+## Navigation (by list if all link \[_A_\](src))
+## Humbuger   (by list if all LINK \[__B___\](src))
 
 # Content
-## Card  (by blockquote >)
-## Code  (by Code \`\`)
-## Image (by\[image\]())
-## Icon  (by\[icon\]())
-## Table (by |:-|:-|)
-## Math  (by \$\$)
-## Button(by strong if link \[\]())
+\## Table
+## pill       (by list if some \[_A_\]() and other texts)
+## tabs       (by list if some \[__A__\]() and other texts)
+\## Card  (by Table)
 
-# Layout
-## Grid System(by Header h4~6)
-## Navigation (by - list if all link \[\]())
-## Sidenav    (by 1.list if all link \[\]())
-## Footer     (by hr \=\=\=\=)
+***
 
-# Advance
+# Grid
+\## Grid System(by >)
+\## Root
+
+***
+
+# Luxury
 ## Accordion (by list if all with head)
 ## Carousel  (by list if all image)
 ## Collapse  (by list if len>9)
 ## PopOver   (by list if len=2)
+
+***
 
 # Learn More & for Developper
 
@@ -58,6 +78,7 @@ ver.2
 
 # Components(TODO)
 ## Charts    (by table if all digit)
+## Sidenav   (by 1.list if all link \[\]())
 ## Breadcrumb
 ## Alert
 ## Button

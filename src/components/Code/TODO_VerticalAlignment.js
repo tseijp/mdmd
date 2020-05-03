@@ -1,0 +1,1 @@
+https://mdbootstrap.com/docs/react/utilities/vertical-align/

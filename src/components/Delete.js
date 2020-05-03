@@ -2,18 +2,23 @@ import React from 'react';
 //import Radium from 'radium';
 import PropTypes from 'prop-types';
 //import classNames from 'classnames';
-
-const Mdmd = (props) => {
-    //const {active, className} = props;
-    return <div>COMING SOON</div>;
+import {MDBBadge} from 'mdbreact';
+const Delete = (props) => {
+    const {className, color, style} = props;
+    const state = {className, color, style}
+    return <MDBBadge {...state}>×{props.children}</MDBBadge>;
 };
 
-Mdmd.propTypes = {
-    active: PropTypes.bool,
+Delete.propTypes = {
+    className: PropTypes.string,
+    color    : PropTypes.string,
+    style    : PropTypes.object,
 };
 
-Mdmd.defaultProps = {
-  active: false,
+Delete.defaultProps = {
+//  active: false,
   className: '',
+  color:'danger',
+  style:{},
 };
-export default Mdmd;
+export default Delete;

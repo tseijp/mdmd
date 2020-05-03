@@ -3,19 +3,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //import classNames from 'classnames';
 
-const Paragraph = (props) => {
-    const {className,color,style} = props;
-    const state = {className,color,style};
-    return <div {...state}>{props.children}</div>;
+const Mdmd = (props) => {
+    //const {active, className} = props;
+    return <div>COMING SOON</div>;
 };
 
-Paragraph.propTypes = {
+Mdmd.propTypes = {
     className: PropTypes.string,
     color    : PropTypes.string,
     style    : PropTypes.object,
 };
 
-Paragraph.defaultProps = {
+Mdmd.defaultProps = {
+  active: false,
   className: '',
 };
-export default Paragraph;
+export default Mdmd;

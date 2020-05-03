@@ -2,10 +2,10 @@ import React from 'react';
 //import Radium from 'radium';
 //import PropTypes from 'prop-types';
 //import classNames from 'classnames';
-import Code from './Code'
+import Math from './Math'
 
-const InlineCode = (props) => {
-    return <Code {...props} inline/>
+const InlineMath = (props) => {
+    return <Math {...props} inline/>
 }
 
-export default InlineCode;
+export default InlineMath;
