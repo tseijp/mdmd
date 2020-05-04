@@ -10,7 +10,7 @@
 <p align="center">
   <img alt="build passin"src="https://img.shields.io/badge/build-passing-green.svg"/>
   <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-green.svg"/>
-  <img alt="npm package" src="https://img.shields.io/badge/npm_package-1.0.0-green.svg"/>
+  <img alt="npm package" src="https://img.shields.io/badge/npm_package-1.0.1-green.svg"/>
   <img alt="twitter URL" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftseijp"/>
 </p>
 

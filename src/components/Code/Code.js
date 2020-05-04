@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 //import {MDBTooltip} from 'mdbreact';
 import PropTypes from 'prop-types';
 import { atomOneLight as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const Code = (props) => {
-    const [isCopied, setIsCopied] = useState(false);
+    //const [isCopied, setIsCopied] = useState(false);
     const {value, language, inline} = props;
     const display = inline?"inline-block":"fixed"
     const inlineStyle =inline?{verticalAlign:"top",padding:"0 0"}:{}
@@ -13,7 +13,7 @@ const Code = (props) => {
         pre :{position:'relative',display,...inlineStyle},
     }
     const handleCopy = (e,v)=> {
-        setIsCopied(true);
+        //setIsCopied(true);
         navigator.clipboard.writeText(v)
     }
     return (

@@ -23,7 +23,7 @@ Mdmd can easily install into your React app!|
 >>>### How to install Mdmd via npm  
 >>>create your project - `create-react-app myproject`  
 >>>`cd myproject`  
->>>`npm install --save mdmd`  
+>>>`npm install --save @tsei/mdmd`  
 >>>Import style files into the src/index.js:
 >>>```
 >>>import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -70,22 +70,24 @@ Mdmd can easily install into your React app!|
 >>>Mdmdはいくつかのoptionに対応してます.
 >>>  
 >>>```
->>>const color = "default"
+>>>const color = "default-color"
 >>>const style = {margin:"auto"}
+>>>const colorLink = "elegant-color"
 >>>const styleList = {fontSize:"25px"}
->>>const styleText = {fontSize:"25px"}
+>>>const styleRoot = {margin:"50px 0"}  
+>>>const classNameRoot = "MdmdRoot"
 >>>const state = {color, style, styleList, styleText}
 >>>```
 >>>  
->>>    ![]()|  
->>>    :-|  
->>>    colorやstyleはすべてのrenderer componentに付与されます |  
->>>    styleXXX(XXXにrenderer type名)は指名したrenderer typeにstyleが付与されます|  
->>>    renderer typeについては右の表を参照してください |  
+>>> ![]()|  
+>>> :-|  
+>>> className, color and style are given to all renderer components. |
+>>> colors can be selected from a bootstrap palette.[_More_](https://mdbootstrap.com/docs/react/css/colors)|  
+>>> You can specify a renderer type such as classNameList, styleRoot, colorLink.|  
+>>> Refer to the table on the right for the renderer type|  
 >>>
 >>> ### How to Custom Renderers
->>>objectとして指名すると，Rendererを上書きできます．
->>>このページはRoot Rendererが次の様に上書きされています.
+>>>This page has been overridden by Root Renderer in the following way.
 >>>[_Source code_](https://github.com/tsei.jp/mdmd/docs/pages/index.js)
 >>>```
 >>>const Root = (props) => (

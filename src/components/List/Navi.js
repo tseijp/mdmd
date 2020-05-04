@@ -8,9 +8,10 @@ import PropTypes from 'prop-types';
 import {MDBNavbar,MDBNavbarBrand,MDBNavbarNav,MDBNavItem,MDBNavLink,MDBNavbarToggler,MDBCollapse} from "mdbreact";
 const Mdmd = (props) => {
     const [isOpen, setIsOpen] = useState(false)
-    const {children,className,getArray,getText,getLink} = props;
+    const {children,className,color,style,getArray,getText,getLink} = props;
     const toggleCollapse=()=>setIsOpen(!isOpen)
-    const state = {color:"default-color",dark:true, expand:"md",fixed:"top",scrolling:true,transparent:true,className}
+    const state = {color,dark:true,expand:"md",fixed:"top",scrolling:true,
+                    transparent:true,className,style}
     return (
         <MDBNavbar {...state}>
             <MDBNavbarBrand href={getLink(children[0].props)}>

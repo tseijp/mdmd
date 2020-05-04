@@ -22,10 +22,10 @@ const Mdmd = (props) => {
     const renderersMdmd = Object.assign(...renderersKey.map(key=>{
         const lowerKey  = key.charAt(0).toLowerCase() + key.slice(1);
         const Renderer  = Renderers[key];
-        const className = {...props.className,...props[`className${key}`]}
-        const color     = {...props.color    ,...props[`color${key}`]}
+        const className = [props.className, props[`className${key}`]].filter(c=>c).join(' ')
+        const color     = props[`color${key}`] || props.color;
         const style     = {...props.style    ,...props[`style${key}`]}
-        const state     = {...className, ...color, ...style,}
+        const state     = {className, color, style,}
         return {[lowerKey]:props=><Renderer {...state} {...props}/>}
     }));
     const renderers = {
@@ -64,9 +64,9 @@ Mdmd.defaultProps = {
     className: '',
     color:"default",
     style:{},
- ...Object.assign(...renderersKey.map( k=>({[`className${k}`]:{}}) )),
- ...Object.assign(...renderersKey.map( k=>({[`color${k}`]:{}}) )),
- ...Object.assign(...renderersKey.map( k=>({[`style${k}`]:{}}) )),
+ ...Object.assign(...renderersKey.map( k=>({[`className${k}`]:null}) )),
+ ...Object.assign(...renderersKey.map( k=>({[`color${k}`]:null}) )),
+ ...Object.assign(...renderersKey.map( k=>({[`style${k}`]:null}) )),
     /*----------Md----------*/
 
 };

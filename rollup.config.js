@@ -1,4 +1,4 @@
-process.env.NODE_ENV="test"
+//process.env.NODE_ENV="test"
 import nodeResolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
@@ -12,7 +12,7 @@ import replace from 'rollup-plugin-replace';
 //import svg from 'rollup-plugin-svg';
 import uglify from 'rollup-plugin-uglify-es';
 
-const namedExports= {'node_modules/react/index.js':['createFactory','Component','createElement',]}
+const namedExports= {'node_modules/react/index.js':['Component','useState',]}
 const plugins = [
   //peerDepsExternal(),
   //postcss({ extract: false }),
@@ -32,6 +32,7 @@ const dependencies = Object.keys(pkg.dependencies)||[];
 export default {
     input: './src/index.js',
     output:[
+        { file: "docs/pages/mdmd.js", format: 'cjs' },
         { file: pkg.main   , format: 'cjs' },
         { file: pkg.module , format: 'es'  }],
     external:dependencies,

@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import {MDBDropdown,MDBDropdownToggle,MDBDropdownMenu,MDBDropdownItem} from "mdbreact";
 
 const Mdmd = (props) => {
-    const {children,className,getArray,getText,getLink} = props;
-    const state = {className}
+    const {children,className,style,getArray,getText,getLink} = props;
+    const state = {className,style}
+    const color = props.color.replace('-color','')
     return (
         <MDBDropdown {...state}>
-            <MDBDropdownToggle caret color="default">
+            <MDBDropdownToggle caret color={color}>
                 {getText(children[0].props)}
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>

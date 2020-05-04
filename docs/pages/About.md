@@ -2,7 +2,7 @@
 --|  
 React Markdown with Materail Design|  
 This Application shows the actual use of Markdown in the application.|  
-[__Github__](https://github.com/tseijp/mdmd) [___Install via npm___](#COMINGSOON) |  
+[__Github__](https://github.com/tseijp/mdmd) [___Install via npm___](https://www.npmjs.com/package/@tsei/mdmd) |  
 
 ***
 

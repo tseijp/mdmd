@@ -1,7 +1,7 @@
 {
-  "name": "mdmd",
-  "version": "1.0.0",
-  "private": true,
+  "name": "@tsei/mdmd",
+  "version": "1.0.1",
+  "private": false,
   "main": "dist/mdmd.js",
   "module": "dist/mdmd.esm.js",
   "dependencies": {

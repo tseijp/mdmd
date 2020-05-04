@@ -5,11 +5,10 @@ import {MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbrea
 
 const Pills =(props)=> {
     const [tab, setTab] = useState(0)
-    const {className, /*color, style,*/ columns, rows, /*keys*/} = props;
+    const {className, isPill, /*color, style,*/ columns, rows, /*keys*/} = props;
     const Aux = props => props.children
-    const getarr =arr=>arr?arr instanceof Array?arr:[arr]:[]
-    const getAnyChild =(props,key)=>getarr(props.children).filter(c=>c.key&&c.key.match(key))//[g0,..]or[]
-    const isPill = columns.every( col=>col.label.every(c=>getAnyChild(c.props,'emphasis').length) )
+    //const getarr =arr=>arr?arr instanceof Array?arr:[arr]:[]
+    //const isPill = columns.every( col=>col.label.every(c=>getAnyChild(c.props,'emphasis').length) )
     const cards = columns.map((column,i)=>(
         {column, rows:rows.map(row=>row[''+i])}
     ))

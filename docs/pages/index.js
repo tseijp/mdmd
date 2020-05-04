@@ -1,6 +1,7 @@
 import React from 'react';
 import {MDBContainer,MDBFreeBird,MDBEdgeHeader} from 'mdbreact';
-import Mdmd from './mdmd';
+//import Mdmd from './mdmd';
+import Mdmd from "../../src";
 
 import About     from './About.md';
 import Basic     from './Basic.md';
@@ -31,7 +32,7 @@ const Root = (props) => {
     )
 }
 const renderers = {root:Root}
-const state = { renderers,}
+const state = { renderers,styleRoot:{padding:"5000px"}, color:"success-color"}
 
 const AboutPage     = (props) => <Mdmd {...state} path={About}    />
 const BasicPage     = (props) => <Mdmd {...state} path={Basic}    />

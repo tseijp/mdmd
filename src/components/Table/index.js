@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import Cards from './Cards';
 import Table from './Table';
-import Pills from './Pills'
+import Pills from './Pills';
+import Modal from './Modal';
 
 const Mdmd = (props) => {
     const {className, color, style} = props;
@@ -18,12 +19,17 @@ const Mdmd = (props) => {
     const columns = gettrs(heads).map(v=>getths(v)).map(th=>getcol(th))[0];
     const rows    = gettrs(bodys).map(v=>getths(v)).map(th=>getrow(th));
     const keys    = gettrs(heads).map(v=>getths(v)).map(th=>getkey(th))[0];
-    //const getAnyGrand =(props,k1,k2)=>getAnyChild(props,k1).map(c=>getAnyChild(c.props,k2)).filter(g=>g.length)
     const state = {className, color, style, columns, rows, keys};
+    const getAnyChild =(props,key)=>getarr(props.children).filter(c=>c.key&&c.key.match(key))//[g0,..]or[]
+    //const getAnyGrand =(props,k1,k2)=>getAnyChild(props,k1).map(c=>getAnyChild(c.props,k2)).filter(g=>g.length)
+    const getIsX=(els,key)=>els.every(el=>el.label.every(c=>getAnyChild(c.props,key).length) )
     if ( keys.every(key=>key.match('image')) )
         return <Cards {...state} argments={props.columnAlignment}/>
-    if ( keys.every(key=>key.match('link')) )
-        return <Pills {...state} />
+    if ( keys.every(key=>key.match('link')) ){
+        if (getIsX(columns, 'delete'))
+            return <Modal {...state} argments={props.columnAlignment}/>
+        return <Pills {...state} isPill={getIsX(columns, 'emphasis')}/>
+    }
     return <Table indexProps={props} data={ {columns,rows} }/>
 };
 

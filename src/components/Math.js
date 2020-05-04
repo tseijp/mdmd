@@ -1,11 +1,12 @@
-import React,{useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MathJax from 'react-mathjax';
+
 const Math = (props) => {
     const {inline, value} = props;
-    const [isCopied, setIsCopied] = useState(false);
+    //const [isCopied, setIsCopied] = useState(false);
     const handleCopy = (e,v)=> {
-        setIsCopied(true);
+    //    setIsCopied(true);
         navigator.clipboard.writeText(v)
     }
     return (

@@ -60,6 +60,17 @@ How to set up the buttons and Images, Please click [_here_](/content)|
 >>> :-|:-|:-  
 >>> This | is | test  
 
+***  
+>>> __Modal Usage__
+>>>```
+>>>
+>>>```
+>
+>>>[~~Modal Example~~]()|  
+>>>-:|  
+>>>If you enter an image in the header, You can create the same navi&foot design as this application|  
+>>>You can choose the direction in which the modal appears from `:-`,`:-:`,`-:`,`--`|  
+
 ***   
 >>>__Box Usage__
 >>>```

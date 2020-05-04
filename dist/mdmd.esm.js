@@ -3,23 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import MathJax from 'react-mathjax';
 import RemarkMathPlugin from 'remark-math';
-import { MDBContainer, MDBRow, MDBCol, MDBTypography, MDBBox, MDBBadge, MDBTooltip, MDBBtn, MDBView, MDBMask, MDBIcon, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBAnimation, MDBDataTable, MDBNav, MDBNavItem, MDBNavLink, MDBTabContent, MDBTabPane, MDBListGroup, MDBNavbar, MDBNavbarBrand, MDBNavbarToggler, MDBCollapse, MDBNavbarNav, MDBFooter, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBListGroupItem } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBTypography, MDBBox, MDBBadge, MDBTooltip, MDBBtn, MDBView, MDBMask, MDBIcon, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBAnimation, MDBDataTable, MDBNav, MDBNavItem, MDBNavLink, MDBTabContent, MDBTabPane, MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBListGroup, MDBNavbar, MDBNavbarBrand, MDBNavbarToggler, MDBCollapse, MDBNavbarNav, MDBFooter, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBListGroupItem } from 'mdbreact';
 import { Light } from 'react-syntax-highlighter';
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -39,128 +24,21 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+var _jsxFileName = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Root.js";
 
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-var _this = undefined,
-    _jsxFileName = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Root.js";
-
-var Root = function Root(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
-  var state = {
-    className: className,
-    color: color,
-    style: style
+const Root = props => {
+  const {
+    className,
+    color,
+    style
+  } = props;
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement(MDBContainer, _extends({}, state, {
-    __self: _this,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9,
@@ -183,20 +61,21 @@ Root.defaultProps = {
   - children
 */
 
-var _this$1 = undefined,
-    _jsxFileName$1 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Text.js";
+var _jsxFileName$1 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Text.js";
 
-var Mdmd = function Mdmd(props) {
-  var color = props.color,
-      style = props.style;
-  var className = (color ? "".concat(color, "-text ") : '') + props.className;
-  var state = {
-    className: className,
-    color: color,
-    style: style
+const Mdmd = props => {
+  const {
+    color,
+    style
+  } = props;
+  const className = (color ? `${color}-text ` : '') + props.className;
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement("span", _extends({}, state, {
-    __self: _this$1,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$1,
       lineNumber: 10,
@@ -216,20 +95,21 @@ Mdmd.defaultProps = {
   style: {}
 };
 
-var _this$2 = undefined,
-    _jsxFileName$2 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Paragraph.js";
+var _jsxFileName$2 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Paragraph.js";
 
-var Paragraph = function Paragraph(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
-  var state = {
-    className: className,
-    color: color,
-    style: style
+const Paragraph = props => {
+  const {
+    className,
+    color,
+    style
+  } = props;
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement("div", _extends({}, state, {
-    __self: _this$2,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$2,
       lineNumber: 9,
@@ -247,38 +127,33 @@ Paragraph.defaultProps = {
   className: ''
 };
 
-var _this$3 = undefined,
-    _jsxFileName$3 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Blockquote\\Grid.js";
+var _jsxFileName$3 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Blockquote\\Grid.js";
 
-var Grid = function Grid(props) {
-  var child = props.child;
+const Grid = props => {
+  const {
+    child
+  } = props;
 
-  var isBlock = function isBlock(c) {
-    return !c.key || c.key.match('blockquote') || c.key.match('paragraph');
-  };
+  const isBlock = c => !c.key || c.key.match('blockquote') || c.key.match('paragraph');
 
-  var renderChild = function renderChild(child) {
-    if (child instanceof Array && child.every(function (c) {
-      return isBlock(c);
-    })) {
+  const renderChild = child => {
+    if (child instanceof Array && child.every(c => isBlock(c))) {
       return /*#__PURE__*/React.createElement(MDBRow, {
-        __self: _this$3,
+        __self: undefined,
         __source: {
           fileName: _jsxFileName$3,
           lineNumber: 13,
           columnNumber: 17
         }
-      }, child.map(function (c, i) {
-        return /*#__PURE__*/React.createElement(MDBCol, {
-          key: i,
-          __self: _this$3,
-          __source: {
-            fileName: _jsxFileName$3,
-            lineNumber: 15,
-            columnNumber: 21
-          }
-        }, c instanceof Array ? renderChild(c) : c);
-      }));
+      }, child.map((c, i) => /*#__PURE__*/React.createElement(MDBCol, {
+        key: i,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName$3,
+          lineNumber: 15,
+          columnNumber: 21
+        }
+      }, c instanceof Array ? renderChild(c) : c)));
     }
 
     return child;
@@ -327,35 +202,32 @@ props.children
           - child ...
 */
 
-var _this$4 = undefined,
-    _jsxFileName$4 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Blockquote\\index.js";
+var _jsxFileName$4 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Blockquote\\index.js";
 
-var Blockquote = function Blockquote(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
+const Blockquote = props => {
+  const {
+    className,
+    color,
+    style
+  } = props;
 
-  var getChild = function getChild(p) {
-    var children = p.children instanceof Array ? p.children : [p.children];
-    return children && children.map(function (c) {
-      return c.key.match('blockquote') ? getChild(c.props) : c;
-    });
+  const getChild = (p, depth = 0) => {
+    const children = p.children instanceof Array ? p.children : [p.children];
+    return children && children.map(c => c.key.match('blockquote') ? getChild(c.props, depth + 1) : c);
   };
 
-  var child = getChild(props);
-  var state = {
-    className: className,
-    color: color,
-    style: style,
-    child: child
+  const child = getChild(props);
+  const state = {
+    className,
+    color,
+    style,
+    child
   };
 
-  if (child instanceof Array && child.every(function (c) {
-    return !(c instanceof Array);
-  })) {
+  if (child instanceof Array && child.every(c => !(c instanceof Array))) {
     return /*#__PURE__*/React.createElement(MDBTypography, {
       blockquote: true,
-      __self: _this$4,
+      __self: undefined,
       __source: {
         fileName: _jsxFileName$4,
         lineNumber: 17,
@@ -364,7 +236,7 @@ var Blockquote = function Blockquote(props) {
     }, /*#__PURE__*/React.createElement(MDBBox, {
       tag: "div",
       mb: 0,
-      __self: _this$4,
+      __self: undefined,
       __source: {
         fileName: _jsxFileName$4,
         lineNumber: 17,
@@ -374,7 +246,7 @@ var Blockquote = function Blockquote(props) {
   }
 
   return /*#__PURE__*/React.createElement(Grid, _extends({}, state, {
-    __self: _this$4,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$4,
       lineNumber: 18,
@@ -427,20 +299,21 @@ props.children
           - child ...
 */
 
-var _this$5 = undefined,
-    _jsxFileName$5 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Delete.js";
+var _jsxFileName$5 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Delete.js";
 
-var Delete = function Delete(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
-  var state = {
-    className: className,
-    color: color,
-    style: style
+const Delete = props => {
+  const {
+    className,
+    color,
+    style
+  } = props;
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement(MDBBadge, _extends({}, state, {
-    __self: _this$5,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$5,
       lineNumber: 9,
@@ -461,136 +334,121 @@ Delete.defaultProps = {
   style: {}
 };
 
-var _this$6 = undefined,
-    _jsxFileName$6 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Link\\Button.js";
+var _jsxFileName$6 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Link\\Button.js";
 
-var Button = function Button(props) {
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isOpened = _useState2[0],
-      setIsOpened = _useState2[1];
+const Button = props => {
+  const [isOpened, setIsOpened] = useState(false);
+  const {
+    className,
+    style,
+    social,
+    level,
+    href,
+    is_1,
+    is_2,
+    is_3
+  } = props;
+  const color = props.color.replace('-color', '');
 
-  var className = props.className,
-      style = props.style,
-      social = props.social,
-      color = props.color,
-      level = props.level,
-      href = props.href,
-      is_1 = props.is_1,
-      is_2 = props.is_2,
-      is_3 = props.is_3;
-
-  var onClick = function onClick() {
+  const onClick = () => {
     setIsOpened(true);
     props.onClick();
   };
 
-  var state = _objectSpread2(_objectSpread2({
-    onClick: onClick,
-    level: level
-  }, {
-    social: social
-  } || {
-    color: color
-  }), {}, {
-    className: className,
-    style: style
-  }, is_3 && {
-    outline: true
-  });
-
-  var hoverText = href.length > 30 ? href.slice(0, 30) + "..." : href;
+  const buttonStyle = social ? {
+    social
+  } : {
+    color
+  };
+  const state = {
+    onClick,
+    level,
+    className,
+    style,
+    ...(is_3 && {
+      outline: true
+    })
+  };
+  const hoverText = href.length > 30 ? href.slice(0, 30) + "..." : href;
   return /*#__PURE__*/React.createElement(MDBTooltip, {
     domElement: true,
     tag: "span",
     placement: "bottom",
-    __self: _this$6,
-    __source: {
-      fileName: _jsxFileName$6,
-      lineNumber: 15,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    __self: _this$6,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$6,
       lineNumber: 16,
-      columnNumber: 13
+      columnNumber: 9
     }
-  }, is_1 && /*#__PURE__*/React.createElement(MDBBadge, _extends({}, state, {
-    __self: _this$6,
+  }, /*#__PURE__*/React.createElement("span", {
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$6,
       lineNumber: 17,
-      columnNumber: 24
+      columnNumber: 13
     }
-  }), props.children), (is_2 || is_3) && /*#__PURE__*/React.createElement(MDBBtn, _extends({}, state, {
-    __self: _this$6,
+  }, is_1 && /*#__PURE__*/React.createElement(MDBBadge, _extends({
+    color: props.color
+  }, state, {
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$6,
       lineNumber: 18,
+      columnNumber: 24
+    }
+  }), props.children), (is_2 || is_3) && /*#__PURE__*/React.createElement(MDBBtn, _extends({}, buttonStyle, state, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$6,
+      lineNumber: 19,
       columnNumber: 32
     }
   }), props.children)), /*#__PURE__*/React.createElement("span", {
-    __self: _this$6,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$6,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 13
     }
   }, isOpened ? 'Opened' : hoverText));
 };
 
-var _this$7 = undefined,
-    _jsxFileName$7 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Link\\index.js";
+var _jsxFileName$7 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Link\\index.js";
 
-var Mdmd$1 = function Mdmd(props) {
-  var _ref;
+const Mdmd$1 = props => {
+  const {
+    color,
+    social,
+    className,
+    style
+  } = props;
+  const keys = props.children.map(el => el.key);
+  const is_1 = keys.every(key => key.match('emphasis')); //   _e.g._
 
-  var color = props.color,
-      social = props.social,
-      className = props.className,
-      style = props.style;
-  var keys = props.children.map(function (el) {
-    return el.key;
-  });
-  var is_1 = keys.every(function (key) {
-    return key.match('emphasis');
-  }); //   _e.g._
+  const is_2 = keys.every(key => key.match('strong')); //  __e.g.__
 
-  var is_2 = keys.every(function (key) {
-    return key.match('strong');
-  }); //  __e.g.__
+  const is_3 = is_2 && [].concat(...props.children.map(el => // ___e.g.___
+  el.props.children instanceof Array ? el.props.children.map(e => e.key) : [])).every(key => key.match('emphasis'));
 
-  var is_3 = is_2 && (_ref = []).concat.apply(_ref, _toConsumableArray(props.children.map(function (el) {
-    return (// ___e.g.___
-      el.props.children instanceof Array ? el.props.children.map(function (e) {
-        return e.key;
-      }) : []
-    );
-  }))).every(function (key) {
-    return key.match('emphasis');
-  });
-
-  var onClick = function onClick() {
+  const onClick = () => {
     window.location.href = props.href;
   };
 
-  var state = {
-    onClick: onClick,
-    className: className,
-    style: style
+  const state = {
+    onClick,
+    className,
+    style
   };
-  var ButtonState = {
-    color: color,
-    social: social,
-    is_1: is_1,
-    is_2: is_2,
-    is_3: is_3
+  const ButtonState = {
+    color,
+    social,
+    is_1,
+    is_2,
+    is_3
   };
   if (is_1 || is_2 || is_3) return /*#__PURE__*/React.createElement(Button, _extends({}, state, ButtonState, {
     href: props.href,
-    __self: _this$7,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$7,
       lineNumber: 19,
@@ -598,14 +456,14 @@ var Mdmd$1 = function Mdmd(props) {
     }
   }), props.children);
   return /*#__PURE__*/React.createElement("span", _extends({}, state, {
-    __self: _this$7,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$7,
       lineNumber: 20,
       columnNumber: 12
     }
   }), /*#__PURE__*/React.createElement("u", {
-    __self: _this$7,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$7,
       lineNumber: 20,
@@ -631,26 +489,27 @@ Mdmd$1.defaultProps = {
   -
 */
 
-var _this$8 = undefined,
-    _jsxFileName$8 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Image\\Image.js";
+var _jsxFileName$8 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Image\\Image.js";
 
-var Image = function Image(props) {
-  var src = props.src,
-      alt = props.alt;
-  var styles = {
+const Image = props => {
+  const {
+    src,
+    alt
+  } = props;
+  const styles = {
     alt: {
       fontSize: "25px"
     }
   };
-  var className = 'img-fluid ' + props.className;
-  var state = {
-    className: className,
-    src: src,
-    alt: alt
+  const className = 'img-fluid ' + props.className;
+  const state = {
+    className,
+    src,
+    alt
   };
   return /*#__PURE__*/React.createElement(MDBView, {
     hover: true,
-    __self: _this$8,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$8,
       lineNumber: 14,
@@ -659,7 +518,7 @@ var Image = function Image(props) {
   }, /*#__PURE__*/React.createElement("img", _extends({
     alt: ""
   }, state, {
-    __self: _this$8,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$8,
       lineNumber: 15,
@@ -668,7 +527,7 @@ var Image = function Image(props) {
   })), /*#__PURE__*/React.createElement(MDBMask, {
     className: "flex-center",
     overlay: "white-light",
-    __self: _this$8,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$8,
       lineNumber: 16,
@@ -677,7 +536,7 @@ var Image = function Image(props) {
   }, /*#__PURE__*/React.createElement("p", {
     className: "black-text",
     style: styles.alt,
-    __self: _this$8,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$8,
       lineNumber: 17,
@@ -700,62 +559,43 @@ Image.defaultProps = {
   - src: ""
 */
 
-var _this$9 = undefined,
-    _jsxFileName$9 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Image\\index.js";
+var _jsxFileName$9 = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Image\\index.js";
 
-var Mdmd$2 = function Mdmd(props) {
-  var _ref;
+const Mdmd$2 = props => {
+  const {
+    alt,
+    src,
+    children,
+    className,
+    color,
+    style
+  } = props;
 
-  var alt = props.alt,
-      src = props.src,
-      children = props.children,
-      className = props.className,
-      color = props.color,
-      style = props.style;
+  const getArr = arr => arr ? arr instanceof Array ? arr : [arr] : [];
 
-  var getArr = function getArr(arr) {
-    return arr ? arr instanceof Array ? arr : [arr] : [];
-  };
+  const keys = getArr(children).map(el => el.key).filter(k => k); //const is_w= keys.every(key=>key.match('delete'))  //put by delete      ~~e.g.~~
 
-  var keys = getArr(children).map(function (el) {
-    return el.key;
-  }).filter(function (k) {
-    return k;
-  }); //const is_w= keys.every(key=>key.match('delete'))  //put by delete      ~~e.g.~~
+  const is_1 = keys.every(key => key.match('emphasis')); //put by 1 underbar  _e.g._
 
-  var is_1 = keys.every(function (key) {
-    return key.match('emphasis');
-  }); //put by 1 underbar  _e.g._
+  const is_2 = keys.every(key => key.match('strong')); //put by 2 underbar __e.g.__
 
-  var is_2 = keys.every(function (key) {
-    return key.match('strong');
-  }); //put by 2 underbar __e.g.__
-
-  var is_3 = (_ref = []).concat.apply(_ref, _toConsumableArray(getArr(props.children).map(function (el) {
-    return (//put by 3 underbar___e.g.___
-      el.props.children instanceof Array ? el.props.children.map(function (e) {
-        return e.key;
-      }) : []
-    );
-  }))).every(function (key) {
-    return key.match('emphasis');
-  });
-
-  var level = is_3 ? 3 : is_2 ? 2 : is_1 ? 1 : 0;
-  var state = {
-    alt: alt,
-    src: src,
-    children: children,
-    level: level,
-    className: className,
-    color: color,
-    style: style
+  const is_3 = [].concat(...getArr(props.children).map(el => //put by 3 underbar___e.g.___
+  el.props.children instanceof Array ? el.props.children.map(e => e.key) : [])).every(key => key.match('emphasis'));
+  const level = is_3 ? 3 : is_2 ? 2 : is_1 ? 1 : 0;
+  const state = {
+    alt,
+    src,
+    children,
+    level,
+    className,
+    color,
+    style
   }; //if (src.match('https://youtube.com'))
   //    return <Embed {...state}/>
 
   if (alt.slice(0, 1).match(':')) return /*#__PURE__*/React.createElement(MDBIcon, {
     icon: alt.slice(1),
-    __self: _this$9,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$9,
       lineNumber: 22,
@@ -763,7 +603,7 @@ var Mdmd$2 = function Mdmd(props) {
     }
   });
   return /*#__PURE__*/React.createElement(Image, _extends({}, state, {
-    __self: _this$9,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$9,
       lineNumber: 23,
@@ -782,32 +622,27 @@ Mdmd$2.defaultProps = {
   color: 'dafault'
 };
 
-var _this$a = undefined,
-    _jsxFileName$a = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Cards.js";
+var _jsxFileName$a = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Cards.js";
 
-var Cards = function Cards(props) {
-  var columns = props.columns,
-      rows = props.rows,
-      argments = props.argments; //keys
+const Cards = props => {
+  const {
+    columns,
+    rows,
+    argments
+  } = props; //keys
 
-  var cards = columns.map(function (column, i) {
-    return {
-      column: column,
-      rows: rows.map(function (row) {
-        return row['' + i];
-      }),
-      argment: argments[i]
-    };
-  });
+  const cards = columns.map((column, i) => ({
+    column,
+    rows: rows.map(row => row['' + i]),
+    argment: argments[i]
+  }));
 
-  var toHead = function toHead(row) {
-    var text = row && row.map(function (r) {
-      return r.props.children;
-    }).join('');
+  const toHead = row => {
+    const text = row && row.map(r => r.props.children).join('');
     return text && text[0] === "#" ? text.slice(1) : null;
   };
 
-  var styles = {
+  const styles = {
     col: {
       textAlign: "center",
       margin: "25px auto"
@@ -822,138 +657,130 @@ var Cards = function Cards(props) {
     }
   };
 
-  var getUpper = function getUpper(chart) {
-    return chart.charAt(0).toUpperCase() + chart.slice(1);
-  };
+  const getUpper = chart => chart.charAt(0).toUpperCase() + chart.slice(1);
 
-  var getType = function getType(argment) {
-    return argment ? "fadeIn".concat(getUpper(argment === 'center' ? 'up' : argment)) : null;
-  };
+  const getType = argment => argment ? `fadeIn${getUpper(argment === 'center' ? 'up' : argment)}` : null;
 
-  var Animation = function Animation(props) {
-    return props.argment ? /*#__PURE__*/React.createElement(MDBAnimation, {
-      reveal: true,
-      type: getType(props.argment),
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 19,
-        columnNumber: 45
-      }
-    }, props.children) : props.children;
-  };
+  const Animation = props => props.argment ? /*#__PURE__*/React.createElement(MDBAnimation, {
+    reveal: true,
+    type: getType(props.argment),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 19,
+      columnNumber: 45
+    }
+  }, props.children) : props.children;
 
   return /*#__PURE__*/React.createElement(MDBRow, {
-    __self: _this$a,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$a,
       lineNumber: 21,
       columnNumber: 9
     }
-  }, cards && cards.map(function (card, i) {
-    return /*#__PURE__*/React.createElement(MDBCol, {
-      key: i,
-      style: styles.col,
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 23,
-        columnNumber: 17
-      }
-    }, /*#__PURE__*/React.createElement(Animation, {
-      argment: card.argment,
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 24,
-        columnNumber: 21
-      }
-    }, /*#__PURE__*/React.createElement(MDBCard, {
-      style: styles.card,
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 25,
-        columnNumber: 25
-      }
-    }, /*#__PURE__*/React.createElement(MDBCardImage, {
-      style: styles.cardImage,
-      className: "img-fluid",
-      src: card.column.label[0].props.src,
-      waves: true,
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 26,
-        columnNumber: 29
-      }
-    }), /*#__PURE__*/React.createElement(MDBCardBody, {
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 28,
-        columnNumber: 29
-      }
-    }, /*#__PURE__*/React.createElement(MDBCardTitle, {
-      __self: _this$a,
-      __source: {
-        fileName: _jsxFileName$a,
-        lineNumber: 29,
-        columnNumber: 33
-      }
-    }, card.column.label[0].props.alt), card.rows && card.rows.map(function (row, j) {
-      return /*#__PURE__*/React.createElement(MDBCardText, {
-        key: j,
-        __self: _this$a,
-        __source: {
-          fileName: _jsxFileName$a,
-          lineNumber: 31,
-          columnNumber: 37
-        }
-      }, toHead(row) || row);
-    })))));
-  }));
+  }, cards && cards.map((card, i) => /*#__PURE__*/React.createElement(MDBCol, {
+    key: i,
+    style: styles.col,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 23,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/React.createElement(Animation, {
+    argment: card.argment,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 24,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/React.createElement(MDBCard, {
+    style: styles.card,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 25,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/React.createElement(MDBCardImage, {
+    style: styles.cardImage,
+    className: "img-fluid",
+    src: card.column.label[0].props.src,
+    waves: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 26,
+      columnNumber: 29
+    }
+  }), /*#__PURE__*/React.createElement(MDBCardBody, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 28,
+      columnNumber: 29
+    }
+  }, /*#__PURE__*/React.createElement(MDBCardTitle, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 29,
+      columnNumber: 33
+    }
+  }, card.column.label[0].props.alt), card.rows && card.rows.map((row, j) => /*#__PURE__*/React.createElement(MDBCardText, {
+    key: j,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$a,
+      lineNumber: 31,
+      columnNumber: 37
+    }
+  }, toHead(row) || row))))))));
 };
 
-var _this$b = undefined,
-    _jsxFileName$b = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Table.js";
+var _jsxFileName$b = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Table.js";
 
-var Table = function Table(props) {
-  var indexProps = props.indexProps,
-      data = props.data,
-      className = props.className,
-      color = props.color,
-      style = props.style;
-  var bordered = indexProps.bordered,
-      maxHeight = indexProps.maxHeight,
-      paging = indexProps.paging,
-      searching = indexProps.searching,
-      scrollX = indexProps.scrollX,
-      scrollY = indexProps.scrollY,
-      small = indexProps.small,
-      sorting = indexProps.sorting,
-      striped = indexProps.striped;
-  var tableState = {
-    bordered: bordered,
-    maxHeight: maxHeight,
-    paging: paging,
-    searching: searching,
-    scrollX: scrollX,
-    scrollY: scrollY,
-    small: small,
-    sorting: sorting,
-    striped: striped
+const Table = props => {
+  const {
+    indexProps,
+    data,
+    className,
+    color,
+    style
+  } = props;
+  const {
+    bordered,
+    maxHeight,
+    paging,
+    searching,
+    scrollX,
+    scrollY,
+    small,
+    sorting,
+    striped
+  } = indexProps;
+  const tableState = {
+    bordered,
+    maxHeight,
+    paging,
+    searching,
+    scrollX,
+    scrollY,
+    small,
+    sorting,
+    striped
   };
-
-  var state = _objectSpread2({
-    data: data,
-    className: className,
-    color: color,
-    style: style
-  }, tableState);
-
+  const state = {
+    data,
+    className,
+    color,
+    style,
+    ...tableState
+  };
   return /*#__PURE__*/React.createElement(MDBDataTable, _extends({}, state, {
-    __self: _this$b,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$b,
       lineNumber: 9,
@@ -962,241 +789,283 @@ var Table = function Table(props) {
   }));
 };
 
-var _this$c = undefined,
-    _jsxFileName$c = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Pills.js";
+var _jsxFileName$c = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Pills.js";
 
-var Pills = function Pills(props) {
-  var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      tab = _useState2[0],
-      setTab = _useState2[1];
+const Pills = props => {
+  const [tab, setTab] = useState(0);
+  const {
+    className,
+    isPill,
 
-  var className = props.className,
-      columns = props.columns,
-      rows = props.rows;
+    /*color, style,*/
+    columns,
+    rows
+    /*keys*/
 
-  var Aux = function Aux(props) {
-    return props.children;
-  };
+  } = props;
 
-  var getarr = function getarr(arr) {
-    return arr ? arr instanceof Array ? arr : [arr] : [];
-  };
-
-  var getAnyChild = function getAnyChild(props, key) {
-    return getarr(props.children).filter(function (c) {
-      return c.key && c.key.match(key);
-    });
-  }; //[g0,..]or[]
+  const Aux = props => props.children; //const getarr =arr=>arr?arr instanceof Array?arr:[arr]:[]
+  //const isPill = columns.every( col=>col.label.every(c=>getAnyChild(c.props,'emphasis').length) )
 
 
-  var isPill = columns.every(function (col) {
-    return col.label.every(function (c) {
-      return getAnyChild(c.props, 'emphasis').length;
-    });
-  });
-  var cards = columns.map(function (column, i) {
-    return {
-      column: column,
-      rows: rows.map(function (row) {
-        return row['' + i];
-      })
-    };
-  });
+  const cards = columns.map((column, i) => ({
+    column,
+    rows: rows.map(row => row['' + i])
+  }));
 
-  var togglePills = function togglePills(num, event) {
+  const togglePills = (num, event) => {
     event.preventDefault(); //?
 
     if (tab !== num) setTab(num);
   };
 
   return /*#__PURE__*/React.createElement(Aux, {
-    __self: _this$c,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$c,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, /*#__PURE__*/React.createElement(MDBNav, {
     style: {
       border: "none"
     },
-    className: className + " mt-5 nav-".concat(isPill ? 'pills' : 'tabs'),
-    __self: _this$c,
+    className: className + ` mt-5 nav-${isPill ? 'pills' : 'tabs'}`,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$c,
-      lineNumber: 23,
+      lineNumber: 22,
       columnNumber: 13
     }
-  }, cards && cards.map(function (card, i) {
-    return /*#__PURE__*/React.createElement(MDBNavItem, {
-      key: i,
-      __self: _this$c,
-      __source: {
-        fileName: _jsxFileName$c,
-        lineNumber: 26,
-        columnNumber: 17
-      }
-    }, /*#__PURE__*/React.createElement(MDBNavLink, {
-      link: true,
-      to: "#",
-      active: tab === i,
-      onClick: function onClick(e) {
-        return togglePills(i, e);
-      },
-      __self: _this$c,
-      __source: {
-        fileName: _jsxFileName$c,
-        lineNumber: 27,
-        columnNumber: 20
-      }
-    }, card.column.label.map(function (l) {
-      return l.props.children;
-    })));
-  })), /*#__PURE__*/React.createElement(MDBTabContent, {
+  }, cards && cards.map((card, i) => /*#__PURE__*/React.createElement(MDBNavItem, {
+    key: i,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$c,
+      lineNumber: 25,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/React.createElement(MDBNavLink, {
+    link: true,
+    to: "#",
+    active: tab === i,
+    onClick: e => togglePills(i, e),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$c,
+      lineNumber: 26,
+      columnNumber: 20
+    }
+  }, card.column.label.map(l => l.props.children))))), /*#__PURE__*/React.createElement(MDBTabContent, {
     activeItem: "" + tab,
-    __self: _this$c,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$c,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 13
     }
-  }, cards && cards.map(function (card, i) {
-    return /*#__PURE__*/React.createElement(MDBTabPane, {
-      key: i,
-      tabId: i + "",
-      __self: _this$c,
-      __source: {
-        fileName: _jsxFileName$c,
-        lineNumber: 36,
-        columnNumber: 17
-      }
-    }, /*#__PURE__*/React.createElement("p", {
-      __self: _this$c,
-      __source: {
-        fileName: _jsxFileName$c,
-        lineNumber: 37,
-        columnNumber: 21
-      }
-    }, " ", card.rows, " "));
-  })));
+  }, cards && cards.map((card, i) => /*#__PURE__*/React.createElement(MDBTabPane, {
+    key: i,
+    tabId: i + "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$c,
+      lineNumber: 35,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$c,
+      lineNumber: 36,
+      columnNumber: 21
+    }
+  }, " ", card.rows, " ")))));
 };
 
-var _this$d = undefined,
-    _jsxFileName$d = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\index.js";
+var _jsxFileName$d = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\Modal.js";
 
-var Mdmd$3 = function Mdmd(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
+const Modal = props => {
+  const {
+    columns,
+    rows,
+    argments,
+    className,
+    style
+  } = props; //keys
 
-  var getarr = function getarr(arr) {
-    return arr ? arr instanceof Array ? arr : [arr] : [];
+  const [modalNum, setModalNum] = useState(null);
+  const cards = columns.map((column, i) => ({
+    column,
+    rows: rows.map(row => row['' + i]),
+    argment: argments[i]
+  }));
+  const color = props.color.replace('-color', '');
+  const state = {
+    className,
+    color,
+    style
   };
 
-  var heads = getarr(props.children).filter(function (v) {
-    return v.key.match("tableHead");
-  });
-  var bodys = getarr(props.children).filter(function (v) {
-    return v.key.match("tableBody");
-  });
+  const Aux = props => props.children;
 
-  var gettrs = function gettrs(els) {
-    var _ref;
-
-    return (_ref = []).concat.apply(_ref, _toConsumableArray(els.map(function (el) {
-      return getarr(el.props.children);
-    })));
-  };
-
-  var getths = function getths(row) {
-    return getarr(row.props.children).map(function (el) {
-      return getarr(el.props.children);
-    });
-  };
-
-  var getcol = function getcol(els) {
-    return els.map(function (c, i) {
-      return {
-        label: c,
-        field: "" + i,
-        sort: "asc",
-        width: 10
-      };
-    });
-  };
-
-  var getrow = function getrow(els) {
-    return els.length ? Object.assign.apply(Object, _toConsumableArray(els.map(function (c, i) {
-      return _defineProperty({}, "" + i, c);
-    }))) : {};
-  };
-
-  var getkey = function getkey(els) {
-    var _ref3;
-
-    return (_ref3 = []).concat.apply(_ref3, _toConsumableArray(els.map(function (el) {
-      return el;
-    }))).map(function (v) {
-      return v.key;
-    });
-  };
-
-  var columns = gettrs(heads).map(function (v) {
-    return getths(v);
-  }).map(function (th) {
-    return getcol(th);
-  })[0];
-  var rows = gettrs(bodys).map(function (v) {
-    return getths(v);
-  }).map(function (th) {
-    return getrow(th);
-  });
-  var keys = gettrs(heads).map(function (v) {
-    return getths(v);
-  }).map(function (th) {
-    return getkey(th);
-  })[0]; //const getAnyGrand =(props,k1,k2)=>getAnyChild(props,k1).map(c=>getAnyChild(c.props,k2)).filter(g=>g.length)
-
-  var state = {
-    className: className,
-    color: color,
-    style: style,
-    columns: columns,
-    rows: rows,
-    keys: keys
-  };
-  if (keys.every(function (key) {
-    return key.match('image');
-  })) return /*#__PURE__*/React.createElement(Cards, _extends({}, state, {
-    argments: props.columnAlignment,
-    __self: _this$d,
+  return /*#__PURE__*/React.createElement(Aux, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 14,
+      columnNumber: 9
+    }
+  }, cards.map((card, i) => /*#__PURE__*/React.createElement(Aux, {
+    key: i,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 16,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/React.createElement(MDBBtn, _extends({}, state, {
+    onClick: () => setModalNum(modalNum === i ? null : i),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 17,
+      columnNumber: 17
+    }
+  }), card.column.label[0].props.children[0].props.children), /*#__PURE__*/React.createElement(MDBModal, {
+    fullHeight: true,
+    position: "right",
+    isOpen: modalNum === i,
+    toggle: () => setModalNum(null),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  }, console.log(card.column.label[0].props), /*#__PURE__*/React.createElement(MDBModalHeader, {
+    toggle: () => setModalNum(null),
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
       lineNumber: 24,
-      columnNumber: 16
+      columnNumber: 21
     }
-  }));
-  if (keys.every(function (key) {
-    return key.match('link');
-  })) return /*#__PURE__*/React.createElement(Pills, _extends({}, state, {
-    __self: _this$d,
+  }, card.column.label[0].props.children), /*#__PURE__*/React.createElement(MDBModalBody, {
+    __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
       lineNumber: 26,
+      columnNumber: 21
+    }
+  }, card.rows), /*#__PURE__*/React.createElement(MDBModalFooter, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 29,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/React.createElement(MDBBtn, _extends({}, state, {
+    onClick: () => setModalNum(null),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$d,
+      lineNumber: 30,
+      columnNumber: 23
+    }
+  }), "Close"))))));
+};
+
+var _jsxFileName$e = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Table\\index.js";
+
+const Mdmd$3 = props => {
+  const {
+    className,
+    color,
+    style
+  } = props;
+
+  const getarr = arr => arr ? arr instanceof Array ? arr : [arr] : [];
+
+  const heads = getarr(props.children).filter(v => v.key.match("tableHead"));
+  const bodys = getarr(props.children).filter(v => v.key.match("tableBody"));
+
+  const gettrs = els => [].concat(...els.map(el => getarr(el.props.children)));
+
+  const getths = row => getarr(row.props.children).map(el => getarr(el.props.children));
+
+  const getcol = els => els.map((c, i) => ({
+    label: c,
+    field: "" + i,
+    sort: "asc",
+    width: 10
+  }));
+
+  const getrow = els => els.length ? Object.assign(...els.map((c, i) => ({
+    ["" + i]: c
+  }))) : {};
+
+  const getkey = els => [].concat(...els.map(el => el)).map(v => v.key);
+
+  const columns = gettrs(heads).map(v => getths(v)).map(th => getcol(th))[0];
+  const rows = gettrs(bodys).map(v => getths(v)).map(th => getrow(th));
+  const keys = gettrs(heads).map(v => getths(v)).map(th => getkey(th))[0];
+  const state = {
+    className,
+    color,
+    style,
+    columns,
+    rows,
+    keys
+  };
+
+  const getAnyChild = (props, key) => getarr(props.children).filter(c => c.key && c.key.match(key)); //[g0,..]or[]
+  //const getAnyGrand =(props,k1,k2)=>getAnyChild(props,k1).map(c=>getAnyChild(c.props,k2)).filter(g=>g.length)
+
+
+  const getIsX = (els, key) => els.every(el => el.label.every(c => getAnyChild(c.props, key).length));
+
+  if (keys.every(key => key.match('image'))) return /*#__PURE__*/React.createElement(Cards, _extends({}, state, {
+    argments: props.columnAlignment,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$e,
+      lineNumber: 27,
       columnNumber: 16
     }
   }));
+
+  if (keys.every(key => key.match('link'))) {
+    if (getIsX(columns, 'delete')) return /*#__PURE__*/React.createElement(Modal, _extends({}, state, {
+      argments: props.columnAlignment,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName$e,
+        lineNumber: 30,
+        columnNumber: 20
+      }
+    }));
+    return /*#__PURE__*/React.createElement(Pills, _extends({}, state, {
+      isPill: getIsX(columns, 'emphasis'),
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName$e,
+        lineNumber: 31,
+        columnNumber: 16
+      }
+    }));
+  }
+
   return /*#__PURE__*/React.createElement(Table, {
     indexProps: props,
     data: {
-      columns: columns,
-      rows: rows
+      columns,
+      rows
     },
-    __self: _this$d,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$d,
-      lineNumber: 27,
+      fileName: _jsxFileName$e,
+      lineNumber: 33,
       columnNumber: 12
     }
   });
@@ -1237,22 +1106,23 @@ Mdmd$3.defaultProps = {
   small: true
 };
 
-var _this$e = undefined,
-    _jsxFileName$e = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\List.js";
+var _jsxFileName$f = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\List.js";
 
-var List = function List(props) {
-  var className = props.className;
-  var state = {
-    className: className
+const List = props => {
+  const {
+    className
+  } = props;
+  const state = {
+    className
   };
-  var style = {
+  const style = {
     margin: "auto auto"
   };
   return /*#__PURE__*/React.createElement(MDBListGroup, _extends({}, state, {
     style: style,
-    __self: _this$e,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$e,
+      fileName: _jsxFileName$f,
       lineNumber: 11,
       columnNumber: 11
     }
@@ -1267,108 +1137,102 @@ List.defaultProps = {
   className: ''
 };
 
-var _this$f = undefined,
-    _jsxFileName$f = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Navi.js";
+var _jsxFileName$g = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Navi.js";
 
-var Mdmd$4 = function Mdmd(props) {
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isOpen = _useState2[0],
-      setIsOpen = _useState2[1];
+const Mdmd$4 = props => {
+  const [isOpen, setIsOpen] = useState(false);
+  const {
+    children,
+    className,
+    color,
+    style,
+    getArray,
+    getText,
+    getLink
+  } = props;
 
-  var children = props.children,
-      className = props.className,
-      getArray = props.getArray,
-      getText = props.getText,
-      getLink = props.getLink;
+  const toggleCollapse = () => setIsOpen(!isOpen);
 
-  var toggleCollapse = function toggleCollapse() {
-    return setIsOpen(!isOpen);
-  };
-
-  var state = {
-    color: "default-color",
+  const state = {
+    color,
     dark: true,
     expand: "md",
     fixed: "top",
     scrolling: true,
     transparent: true,
-    className: className
+    className,
+    style
   };
   return /*#__PURE__*/React.createElement(MDBNavbar, _extends({}, state, {
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 15,
+      fileName: _jsxFileName$g,
+      lineNumber: 16,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement(MDBNavbarBrand, {
     href: getLink(children[0].props),
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 16,
+      fileName: _jsxFileName$g,
+      lineNumber: 17,
       columnNumber: 13
     }
   }, /*#__PURE__*/React.createElement("strong", {
     className: "white-text",
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 17,
+      fileName: _jsxFileName$g,
+      lineNumber: 18,
       columnNumber: 17
     }
   }, getText(children[0].props))), /*#__PURE__*/React.createElement(MDBNavbarToggler, {
     onClick: toggleCollapse,
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 19,
+      fileName: _jsxFileName$g,
+      lineNumber: 20,
       columnNumber: 13
     }
   }), /*#__PURE__*/React.createElement(MDBCollapse, {
     id: "navbarCollapse3",
     isOpen: isOpen,
     navbar: true,
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 20,
+      fileName: _jsxFileName$g,
+      lineNumber: 21,
       columnNumber: 13
     }
   }, /*#__PURE__*/React.createElement(MDBNavbarNav, {
     left: true,
-    __self: _this$f,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$f,
-      lineNumber: 21,
+      fileName: _jsxFileName$g,
+      lineNumber: 22,
       columnNumber: 17
     }
-  }, getArray(children).filter(function (c, i) {
-    return i > 0;
-  }).map(function (c, i) {
-    return /*#__PURE__*/React.createElement(MDBNavItem, {
-      key: i,
-      active: window.location.href.match(getLink(c.props)) ? true : false,
-      onClick: function onClick() {
-        window.location.href = getLink(c.props);
-      },
-      __self: _this$f,
-      __source: {
-        fileName: _jsxFileName$f,
-        lineNumber: 23,
-        columnNumber: 21
-      }
-    }, /*#__PURE__*/React.createElement(MDBNavLink, {
-      to: "#",
-      __self: _this$f,
-      __source: {
-        fileName: _jsxFileName$f,
-        lineNumber: 26,
-        columnNumber: 25
-      }
-    }, getText(c.props)));
-  }))));
+  }, getArray(children).filter((c, i) => i > 0).map((c, i) => /*#__PURE__*/React.createElement(MDBNavItem, {
+    key: i,
+    active: window.location.href.match(getLink(c.props)) ? true : false,
+    onClick: () => {
+      window.location.href = getLink(c.props);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$g,
+      lineNumber: 24,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/React.createElement(MDBNavLink, {
+    to: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$g,
+      lineNumber: 27,
+      columnNumber: 25
+    }
+  }, getText(c.props)))))));
 };
 
 Mdmd$4.propTypes = {
@@ -1379,66 +1243,67 @@ Mdmd$4.defaultProps = {
   className: ''
 };
 
-var _this$g = undefined,
-    _jsxFileName$g = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Foot.js";
+var _jsxFileName$h = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Foot.js";
 
-var Mdmd$5 = function Mdmd(props) {
-  var children = props.children,
-      getArray = props.getArray,
-      getText = props.getText,
-      getLink = props.getLink;
-  var className = 'footer-copyright text-center font-small py-3' + props.className;
-  var style = {
-    position: "relative",
-    bottom: "0",
-    overflow: "hidden",
+const Mdmd$5 = props => {
+  const {
+    children,
+    color,
+    getArray,
+    getText,
+    getLink
+  } = props;
+  const className = 'footer-copyright text-center font-small py-3' + props.className;
+  const style = {
     maxWidth: "99vw",
     left: "50%",
     right: "50%",
     marginLeft: "-50vw",
-    marginRight: "-50vw"
+    marginRight: "-50vw",
+    position: "relative",
+    bottom: "0",
+    overflow: "hidden",
+    ...props.style
   };
-  var state = {
-    className: className,
-    color: "default-color",
-    style: style
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement(MDBFooter, _extends({}, state, {
-    __self: _this$g,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$g,
+      fileName: _jsxFileName$h,
       lineNumber: 14,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement(MDBContainer, {
     fluid: true,
-    __self: _this$g,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$g,
+      fileName: _jsxFileName$h,
       lineNumber: 15,
       columnNumber: 13
     }
   }, /*#__PURE__*/React.createElement(MDBRow, {
-    __self: _this$g,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$g,
+      fileName: _jsxFileName$h,
       lineNumber: 16,
       columnNumber: 17
     }
-  }, getArray(children).map(function (c, i) {
-    return /*#__PURE__*/React.createElement(MDBCol, {
-      key: i,
-      onClick: function onClick() {
-        window.location.href = getLink(c.props);
-      },
-      __self: _this$g,
-      __source: {
-        fileName: _jsxFileName$g,
-        lineNumber: 18,
-        columnNumber: 25
-      }
-    }, getText(c.props));
-  }))));
+  }, getArray(children).map((c, i) => /*#__PURE__*/React.createElement(MDBCol, {
+    key: i,
+    onClick: () => {
+      window.location.href = getLink(c.props);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$h,
+      lineNumber: 18,
+      columnNumber: 25
+    }
+  }, getText(c.props))))));
 };
 
 Mdmd$5.propTypes = {
@@ -1450,58 +1315,58 @@ Mdmd$5.defaultProps = {
   color: "default-color"
 };
 
-var _this$h = undefined,
-    _jsxFileName$h = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Drop.js";
+var _jsxFileName$i = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\Drop.js";
 
-var Mdmd$6 = function Mdmd(props) {
-  var children = props.children,
-      className = props.className,
-      getArray = props.getArray,
-      getText = props.getText,
-      getLink = props.getLink;
-  var state = {
-    className: className
+const Mdmd$6 = props => {
+  const {
+    children,
+    className,
+    style,
+    getArray,
+    getText,
+    getLink
+  } = props;
+  const state = {
+    className,
+    style
   };
+  const color = props.color.replace('-color', '');
   return /*#__PURE__*/React.createElement(MDBDropdown, _extends({}, state, {
-    __self: _this$h,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$h,
-      lineNumber: 10,
+      fileName: _jsxFileName$i,
+      lineNumber: 11,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement(MDBDropdownToggle, {
     caret: true,
-    color: "default",
-    __self: _this$h,
+    color: color,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$h,
-      lineNumber: 11,
+      fileName: _jsxFileName$i,
+      lineNumber: 12,
       columnNumber: 13
     }
   }, getText(children[0].props)), /*#__PURE__*/React.createElement(MDBDropdownMenu, {
     basic: true,
-    __self: _this$h,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$h,
-      lineNumber: 14,
+      fileName: _jsxFileName$i,
+      lineNumber: 15,
       columnNumber: 13
     }
-  }, getArray(children).filter(function (c, i) {
-    return i > 0;
-  }).map(function (c, i) {
-    return /*#__PURE__*/React.createElement(MDBDropdownItem, {
-      key: i,
-      onClick: function onClick() {
-        window.location.href = getLink(c.props);
-      },
-      __self: _this$h,
-      __source: {
-        fileName: _jsxFileName$h,
-        lineNumber: 16,
-        columnNumber: 17
-      }
-    }, getText(c.props) || c.props.children);
-  })));
+  }, getArray(children).filter((c, i) => i > 0).map((c, i) => /*#__PURE__*/React.createElement(MDBDropdownItem, {
+    key: i,
+    onClick: () => {
+      window.location.href = getLink(c.props);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName$i,
+      lineNumber: 17,
+      columnNumber: 17
+    }
+  }, getText(c.props) || c.props.children))));
 };
 
 Mdmd$6.propTypes = {
@@ -1512,90 +1377,61 @@ Mdmd$6.defaultProps = {
   className: ''
 };
 
-var _this$i = undefined,
-    _jsxFileName$i = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\index.js";
+var _jsxFileName$j = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\List\\index.js";
 
-var Mdmd$7 = function Mdmd(props) {
+const Mdmd$7 = props => {
   //grands:i want to know as g0 is btn? link? g0.child is ?
   //i want know g0 have 'link' child and g0 have 'strong' grandchild.
-  var children = props.children,
-      className = props.className,
-      color = props.color,
-      style = props.style;
+  const {
+    children,
+    className,
+    color,
+    style
+  } = props;
 
-  var getArray = function getArray(arr) {
-    return arr ? (arr instanceof Array ? arr : [arr]).filter(function (a) {
-      return a;
-    }) : [];
+  const getArray = arr => arr ? (arr instanceof Array ? arr : [arr]).filter(a => a) : [];
+
+  const getAnyChild = (props, key) => getArray(props.children).filter(c => c.key && c.key.match(key)); //[g0,..]or[]
+
+
+  const getAnyGrand = (props, k1, k2) => getAnyChild(props, k1).map(c => getAnyChild(c.props, k2)).filter(g => g.length);
+
+  const getText = props => getArray(props.children).map(c => c.key && c.key.match('link') ? c.props.children : c);
+
+  const getLink = props => getArray(props.children).map(c => c.key && c.key.match('link') ? c.props.href : '#!').filter(n => n)[0] || '#!';
+
+  const state = {
+    className,
+    color,
+    style,
+    children,
+    getArray,
+    getAnyChild,
+    getText,
+    getLink
   };
 
-  var getAnyChild = function getAnyChild(props, key) {
-    return getArray(props.children).filter(function (c) {
-      return c.key && c.key.match(key);
-    });
-  }; //[g0,..]or[]
-
-
-  var getAnyGrand = function getAnyGrand(props, k1, k2) {
-    return getAnyChild(props, k1).map(function (c) {
-      return getAnyChild(c.props, k2);
-    }).filter(function (g) {
-      return g.length;
-    });
-  };
-
-  var getText = function getText(props) {
-    return getArray(props.children).map(function (c) {
-      return c.key && c.key.match('link') ? c.props.children : c;
-    });
-  };
-
-  var getLink = function getLink(props) {
-    return getArray(props.children).map(function (c) {
-      return c.key && c.key.match('link') ? c.props.href : '#!';
-    }).filter(function (n) {
-      return n;
-    })[0] || '#!';
-  };
-
-  var state = {
-    className: className,
-    color: color,
-    style: style,
-    children: children,
-    getArray: getArray,
-    getAnyChild: getAnyChild,
-    getText: getText,
-    getLink: getLink
-  };
-
-  if (children.every(function (c) {
-    return getAnyChild(c.props, 'link').length;
-  })) {
-    if (children.every(function (c) {
-      return getAnyGrand(c.props, 'link', 'strong').length;
-    })) return /*#__PURE__*/React.createElement(Mdmd$5, _extends({}, state, {
-      __self: _this$i,
+  if (children.every(c => getAnyChild(c.props, 'link').length)) {
+    if (children.every(c => getAnyGrand(c.props, 'link', 'strong').length)) return /*#__PURE__*/React.createElement(Mdmd$5, _extends({}, state, {
+      __self: undefined,
       __source: {
-        fileName: _jsxFileName$i,
+        fileName: _jsxFileName$j,
         lineNumber: 21,
         columnNumber: 20
       }
     }));
-    if (children.every(function (c) {
-      return getAnyGrand(c.props, 'link', 'emphasis').length;
-    })) return /*#__PURE__*/React.createElement(Mdmd$4, _extends({}, state, {
-      __self: _this$i,
+    if (children.every(c => getAnyGrand(c.props, 'link', 'emphasis').length)) return /*#__PURE__*/React.createElement(Mdmd$4, _extends({}, state, {
+      __self: undefined,
       __source: {
-        fileName: _jsxFileName$i,
+        fileName: _jsxFileName$j,
         lineNumber: 23,
         columnNumber: 20
       }
     }));
     return /*#__PURE__*/React.createElement(Mdmd$6, _extends({}, state, {
-      __self: _this$i,
+      __self: undefined,
       __source: {
-        fileName: _jsxFileName$i,
+        fileName: _jsxFileName$j,
         lineNumber: 24,
         columnNumber: 16
       }
@@ -1610,9 +1446,9 @@ var Mdmd$7 = function Mdmd(props) {
 
 
   return /*#__PURE__*/React.createElement(List, {
-    __self: _this$i,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$i,
+      fileName: _jsxFileName$j,
       lineNumber: 33,
       columnNumber: 12
     }
@@ -1641,23 +1477,25 @@ props.children
       - child(key=text and so)
 */
 
-var _this$j = undefined,
-    _jsxFileName$j = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\ListItem.js";
+var _jsxFileName$k = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\ListItem.js";
 
-var ListItem = function ListItem(props) {
-  var className = props.className,
-      color = props.color,
-      style = props.style;
-  var state = {
-    className: className,
-    color: color,
-    style: style
+const ListItem = props => {
+  const {
+    className,
+    style
+  } = props;
+  const colors = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
+  const color = props.color in colors ? props.color : null;
+  const state = {
+    className,
+    color,
+    style
   };
   return /*#__PURE__*/React.createElement(MDBListGroupItem, _extends({}, state, {
-    __self: _this$j,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$j,
-      lineNumber: 9,
+      fileName: _jsxFileName$k,
+      lineNumber: 11,
       columnNumber: 12
     }
   }), props.children);
@@ -1674,30 +1512,31 @@ ListItem.defaultProps = {
   className: ''
 };
 
-var _this$k = undefined,
-    _jsxFileName$k = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Heading.js";
+var _jsxFileName$l = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Heading.js";
 
-var Heading = function Heading(props) {
-  var abbr = props.abbr,
-      active = props.active,
-      variant = props.variant,
-      className = props.className,
-      color = props.color,
-      style = props.style;
-  var state = {
-    abbr: abbr,
-    active: active,
-    className: className,
-    color: color,
-    style: style
+const Heading = props => {
+  const {
+    abbr,
+    active,
+    variant,
+    className,
+    color,
+    style
+  } = props;
+  const state = {
+    abbr,
+    active,
+    className,
+    color,
+    style
   };
-  var addvariant = variant ? '-' + variant : '';
+  const addvariant = variant ? '-' + variant : '';
   return /*#__PURE__*/React.createElement(MDBTypography, _extends({}, state, {
     tag: "h" + props.level,
-    variant: "h".concat(props.level).concat(addvariant),
-    __self: _this$k,
+    variant: `h${props.level}${addvariant}`,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$k,
+      fileName: _jsxFileName$l,
       lineNumber: 8,
       columnNumber: 12
     }
@@ -1838,32 +1677,30 @@ var style = {
   }
 };
 
-var _this$l = undefined,
-    _jsxFileName$l = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Code\\Code.js";
+var _jsxFileName$m = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Code\\Code.js";
 
-var Code = function Code(props) {
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isCopied = _useState2[0],
-      setIsCopied = _useState2[1];
-
-  var value = props.value,
-      language = props.language,
-      inline = props.inline;
-  var display = inline ? "inline-block" : "fixed";
-  var inlineStyle = inline ? {
+const Code = props => {
+  //const [isCopied, setIsCopied] = useState(false);
+  const {
+    value,
+    language,
+    inline
+  } = props;
+  const display = inline ? "inline-block" : "fixed";
+  const inlineStyle = inline ? {
     verticalAlign: "top",
     padding: "0 0"
   } : {};
-  var styles = {
-    pre: _objectSpread2({
+  const styles = {
+    pre: {
       position: 'relative',
-      display: display
-    }, inlineStyle)
+      display,
+      ...inlineStyle
+    }
   };
 
-  var handleCopy = function handleCopy(e, v) {
-    setIsCopied(true);
+  const handleCopy = (e, v) => {
+    //setIsCopied(true);
     navigator.clipboard.writeText(v);
   };
 
@@ -1871,15 +1708,13 @@ var Code = function Code(props) {
     PreTag: inline ? "span" : "pre",
     style: style,
     customStyle: styles.pre,
-    onDoubleClick: function onDoubleClick(e) {
-      return handleCopy(e, value);
-    },
+    onDoubleClick: e => handleCopy(e, value),
     useInlineStyles: true,
     showLineNumbers: !inline,
     language: language,
-    __self: _this$l,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$l,
+      fileName: _jsxFileName$m,
       lineNumber: 20,
       columnNumber: 9
     }
@@ -1901,48 +1736,41 @@ Code.defaultProps = {
   inline: false
 };
 
-var _this$m = undefined,
-    _jsxFileName$m = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\InlineCode.js";
+var _jsxFileName$n = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\InlineCode.js";
 
-var InlineCode = function InlineCode(props) {
+const InlineCode = props => {
   return /*#__PURE__*/React.createElement(Code, _extends({}, props, {
     inline: true,
-    __self: _this$m,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$m,
+      fileName: _jsxFileName$n,
       lineNumber: 8,
       columnNumber: 12
     }
   }));
 };
 
-var _this$n = undefined,
-    _jsxFileName$n = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Math.js";
+var _jsxFileName$o = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\Math.js";
 
-var Math = function Math(props) {
-  var inline = props.inline,
-      value = props.value;
+const Math = props => {
+  const {
+    inline,
+    value
+  } = props; //const [isCopied, setIsCopied] = useState(false);
 
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isCopied = _useState2[0],
-      setIsCopied = _useState2[1];
-
-  var handleCopy = function handleCopy(e, v) {
-    setIsCopied(true);
+  const handleCopy = (e, v) => {
+    //    setIsCopied(true);
     navigator.clipboard.writeText(v);
   };
 
   return /*#__PURE__*/React.createElement(MathJax.Node, {
     inline: inline,
     formula: value,
-    onDoubleClick: function onDoubleClick(e) {
-      return handleCopy(e, value);
-    },
-    __self: _this$n,
+    onDoubleClick: e => handleCopy(e, value),
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$n,
-      lineNumber: 12,
+      fileName: _jsxFileName$o,
+      lineNumber: 13,
       columnNumber: 13
     }
   });
@@ -1963,15 +1791,14 @@ Math.defaultProps = {
   inline: false
 };
 
-var _this$o = undefined,
-    _jsxFileName$o = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\InlineMath.js";
+var _jsxFileName$p = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\components\\InlineMath.js";
 
-var InlineMath = function InlineMath(props) {
+const InlineMath = props => {
   return /*#__PURE__*/React.createElement(Math, _extends({}, props, {
     inline: true,
-    __self: _this$o,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$o,
+      fileName: _jsxFileName$p,
       lineNumber: 8,
       columnNumber: 12
     }
@@ -1997,76 +1824,66 @@ var Renderers = /*#__PURE__*/Object.freeze({
   InlineMath: InlineMath
 });
 
-var _this$p = undefined,
-    _jsxFileName$p = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\Mdmd.js";
-var renderersKey = Object.keys(Renderers);
+var _jsxFileName$q = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\Mdmd.js";
+const renderersKey = Object.keys(Renderers);
 
-var Mdmd$8 = function Mdmd(props) {
+const Mdmd$8 = props => {
   /******************** for props.path ********************/
-  var _useState = useState(props.source),
-      _useState2 = _slicedToArray(_useState, 2),
-      source = _useState2[0],
-      setSource = _useState2[1];
-
-  useEffect(function () {
-    if (props.path) fetch(props.path).then(function (res) {
-      return res.text();
-    }).then(function (res) {
-      return setSource(res);
-    });
+  const [source, setSource] = useState(props.source);
+  useEffect(() => {
+    if (props.path) fetch(props.path).then(res => res.text()).then(res => setSource(res));
   }, [source, props.path]);
   /******************** for render () ********************/
 
-  var renderersMdmd = Object.assign.apply(Object, _toConsumableArray(renderersKey.map(function (key) {
-    var lowerKey = key.charAt(0).toLowerCase() + key.slice(1);
-    var Renderer = Renderers[key];
-
-    var className = _objectSpread2(_objectSpread2({}, props.className), props["className".concat(key)]);
-
-    var color = _objectSpread2(_objectSpread2({}, props.color), props["color".concat(key)]);
-
-    var style = _objectSpread2(_objectSpread2({}, props.style), props["style".concat(key)]);
-
-    var state = _objectSpread2(_objectSpread2(_objectSpread2({}, className), color), style);
-
-    return _defineProperty({}, lowerKey, function (props) {
-      return /*#__PURE__*/React.createElement(Renderer, _extends({}, state, props, {
-        __self: _this$p,
+  const renderersMdmd = Object.assign(...renderersKey.map(key => {
+    const lowerKey = key.charAt(0).toLowerCase() + key.slice(1);
+    const Renderer = Renderers[key];
+    const className = [props.className, props[`className${key}`]].filter(c => c).join(' ');
+    const color = props[`color${key}`] || props.color;
+    const style = { ...props.style,
+      ...props[`style${key}`]
+    };
+    const state = {
+      className,
+      color,
+      style
+    };
+    return {
+      [lowerKey]: props => /*#__PURE__*/React.createElement(Renderer, _extends({}, state, props, {
+        __self: undefined,
         __source: {
-          fileName: _jsxFileName$p,
+          fileName: _jsxFileName$q,
           lineNumber: 29,
           columnNumber: 35
         }
-      }));
-    });
-  })));
-
-  var renderers = _objectSpread2(_objectSpread2({}, renderersMdmd), props.renderers);
-
-  var plugins = [RemarkMathPlugin];
-  var state = {
-    source: source,
-    renderers: renderers,
-    plugins: plugins
+      }))
+    };
+  }));
+  const renderers = { ...renderersMdmd,
+    ...props.renderers
   };
-  var options = ['escapeHtml', 'skipHtml', 'sourcePos', 'rawSourcePos', 'includeNodeIndex', 'allowedTypes', 'disallowedTypes', 'unwrapDisallowed', 'allowNode', 'linkTarget', 'transformLinkUri', 'transformImageUrl'].filter(function (name) {
-    return name in props;
-  }).map(function (name) {
-    return _defineProperty({}, name, props[name]);
-  });
-  var optionsState = options.length ? Object.assign.apply(Object, _toConsumableArray(options)) : {};
+  const plugins = [RemarkMathPlugin];
+  const state = {
+    source,
+    renderers,
+    plugins
+  };
+  const options = ['escapeHtml', 'skipHtml', 'sourcePos', 'rawSourcePos', 'includeNodeIndex', 'allowedTypes', 'disallowedTypes', 'unwrapDisallowed', 'allowNode', 'linkTarget', 'transformLinkUri', 'transformImageUrl'].filter(name => name in props).map(name => ({
+    [name]: props[name]
+  }));
+  const optionsState = options.length ? Object.assign(...options) : {};
   return /*#__PURE__*/React.createElement(MathJax.Provider, {
     input: "tex",
-    __self: _this$p,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$p,
+      fileName: _jsxFileName$q,
       lineNumber: 42,
       columnNumber: 9
     }
   }, /*#__PURE__*/React.createElement(ReactMarkdown, _extends({}, optionsState, state, {
-    __self: _this$p,
+    __self: undefined,
     __source: {
-      fileName: _jsxFileName$p,
+      fileName: _jsxFileName$q,
       lineNumber: 43,
       columnNumber: 13
     }
@@ -2083,7 +1900,7 @@ Mdmd$8.propTypes = {
   color: PropTypes.string,
   style: PropTypes.object
 };
-Mdmd$8.defaultProps = _objectSpread2(_objectSpread2(_objectSpread2({
+Mdmd$8.defaultProps = {
   /*----------main----------*/
   path: null,
   source: '',
@@ -2092,14 +1909,19 @@ Mdmd$8.defaultProps = _objectSpread2(_objectSpread2(_objectSpread2({
   /*----------sub----------*/
   className: '',
   color: "default",
-  style: {}
-}, Object.assign.apply(Object, _toConsumableArray(renderersKey.map(function (k) {
-  return _defineProperty({}, "className".concat(k), {});
-})))), Object.assign.apply(Object, _toConsumableArray(renderersKey.map(function (k) {
-  return _defineProperty({}, "color".concat(k), {});
-})))), Object.assign.apply(Object, _toConsumableArray(renderersKey.map(function (k) {
-  return _defineProperty({}, "style".concat(k), {});
-}))));
+  style: {},
+  ...Object.assign(...renderersKey.map(k => ({
+    [`className${k}`]: null
+  }))),
+  ...Object.assign(...renderersKey.map(k => ({
+    [`color${k}`]: null
+  }))),
+  ...Object.assign(...renderersKey.map(k => ({
+    [`style${k}`]: null
+  })))
+  /*----------Md----------*/
+
+};
 
 export default Mdmd$8;
 export { Blockquote, Code, Delete, Heading, Mdmd$2 as Image, InlineCode, InlineMath, Mdmd$1 as Link, Mdmd$7 as List, ListItem, Math, Paragraph, Root, Mdmd$3 as Table, Mdmd as Text };
