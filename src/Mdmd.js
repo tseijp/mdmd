@@ -19,7 +19,7 @@ const Mdmd = (props) => {
             fetch(props.md||props.path).then(res=>res.text()).then(res=>setSource(res));
     }, [props.md, props.path])
     useEffect(()=>{
-        if(source!==props.source)
+        if(props.source && source!==props.source)
             setSource(props.source)
     }, [source, props.source])
     /******************** for render () ********************/

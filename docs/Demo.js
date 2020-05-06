@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useRef, createRef, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
 import "ace-builds/src-noconflict/mode-markdown";
@@ -7,7 +7,8 @@ import {
     MDBContainer, MDBFreeBird, MDBEdgeHeader, MDBIcon, MDBBtn,
     MDBModal, MDBModalBody, MDBModalHeader, /*MDBModalFooter*/} from "mdbreact";
 
-import Mdmd from "../src"; //develop&test
+//import Mdmd from "../src"; //develop&test
+import Mdmd from "./mdmd"; //productions
 import About     from './pages/About.md';
 import Basic     from './pages/Basic.md';
 import Component from './pages/Component.md';
@@ -18,8 +19,8 @@ import Help      from './pages/Help.md';
 import How       from './pages/How.md';
 
 const DOCSPAGES = {About,Basic,Component,Container,Content,Grid,Help,How}
+const INITIALDOCSPAGE = "Grid"
 const SEPARATORWIDTH = 15;
-
 /*---------- context ----------*/
 
 const Root = (props) => { //customize node for Mdmd.props.renderers
@@ -63,20 +64,35 @@ const Modal = (props) => {
     )
 }
 const Demo = (props) => {
-    /******************** for props.md ********************/
+    /******************** for mdmd props ********************/
+    const leftRef = createRef();
+    const aceEditorRef = useRef(null);
+    const separatorXRef = useRef(null);
     const [color, setColor] = useState(props.color);
-    const [source, setSource] = useState(props.source);//for Mdmd props.source
-    const [filename, setFilename] = useState('About');
-    const [leftWidth, setLeftWidth] = useState(SEPARATORWIDTH);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const leftRef = React.createRef();
-    const aceEditorRef = React.useRef(null);
-    const separatorXRef = React.useRef(null);
-    /******************** for pages ********************/
+    /******************** for docs pages ********************/
+    const [filename, setFilename] = useState(INITIALDOCSPAGE);
     useEffect(()=>{
-        fetch(DOCSPAGES[filename]).then(res=>res.text()).then(res=>setSource(res));
+        fetch(DOCSPAGES[filename]).then(res=>res.text()).then(res=>{
+            setAceValue(res);
+            setSource(res);
+        });
     }, [filename])
-    /******************** for split ********************/
+    /******************** for should update ********************/
+    const [source, setSource] = useState(props.source);//for Mdmd props.source
+    const [aceValue, setAceValue] = useState(props.source);
+    const [isChanged, setIsChanged] = useState(false);
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            if(isChanged){
+                setIsChanged(false)
+                setSource(aceValue)
+            }
+        },1000);
+        return () => clearInterval(interval);
+    })
+    /******************** for split window ********************/
+    const [leftWidth, setLeftWidth] = useState(SEPARATORWIDTH);
     useEffect(() => {
         if (!leftWidth)
             return setLeftWidth(leftRef.current.clientWidth);
@@ -92,7 +108,7 @@ const Demo = (props) => {
         separatorXRef.current = e.clientX;
         setLeftWidth(newleftWidth);
     }
-    /******************** render ********************/
+    /******************** styles ********************/
     const styles = {
         SplitPane :{display:"table",flexDirection:"column", width:"100%"},
         Separator :{display:"table-cell", backgroundColor:"#E8E8E8",
@@ -103,30 +119,35 @@ const Demo = (props) => {
                     width:leftWidth+"px",height:"100%",},
         btn  : {fontSize:"50px", borderRadius:"100px",
                 position:"fixed",transition:"0.75s", bottom:"50px",},
-        btnWidth:{padding:"15px 40px",left:leftWidth+(leftWidth<SEPARATORWIDTH*2?50:-150)+"px"},
-        btnModal:{padding:"15px 43px",right:"50px"},
+        btnWidth:{padding:"15px 40px",left:leftWidth+(leftWidth< SEPARATORWIDTH*2?50:-150)+"px",
+                ...((leftWidth< SEPARATORWIDTH*2)?{transform:"rotate(-180deg)"}:{})},
+        btnModal:{padding:"15px 43px",right:"50px",...(isModalOpen?{}:{transform:"rotate(90deg)"})},
         btnClose:{padding:"15px 40px",right:(isModalOpen?50:-50)+"px"},
     };
+    /******************** peformance tuning ********************/
+    const stateMdmd = React.useMemo(()=>({color, renderers:{root:Root}}), [color]);
+    const stateAce = React.useMemo(()=>({
+        ref:aceEditorRef, value:aceValue,onChange:(value)=>{setAceValue(value);setIsChanged(true)},
+        name:"UNIQUE_ID_OF_DIV", mode:"markdown", theme:"github",
+        width:"100%",  height:"100%", editorProps:{ $blockScrolling: false },
+    }), [aceValue]);
+    /******************** render ********************/
     return (
         <div style={styles.SplitPane}
             onMouseMove={e=>separatorMouseMove(e)}
             onMouseUp  ={e=>separatorXRef.current = null}>
             <div ref={leftRef} style={styles.SplitLeft}>
                 <MDBContainer style={styles.Container}>
-                    <AceEditor ref={aceEditorRef} value={source}
-                        name="UNIQUE_ID_OF_DIV" mode="markdown" theme="github"
-                        width="100%" height="100%"
-                        onChange={(value)=>setSource(value)}                    {/*TODO determine to run setSource by time*/}
-                        editorProps={{ $blockScrolling: false }}/>
+                    <AceEditor {...stateAce}/>
                 </MDBContainer>
             </div>
             <div style={styles.Separator}  onMouseDown={e=>{separatorXRef.current=e.clientX}}/>
             <div style={styles.SplitRight} onMouseDown={e=>{separatorXRef.current=e.clientX}}>
-                <Mdmd source={source} color={color} renderers={{root:Root}} />
+                <Mdmd source={source} {...stateMdmd}/>
             </div>
             <MDBBtn style={{...styles.btn,...styles.btnWidth}} color={color.replace('-color','')}
                 onClick={()=>{setLeftWidth(leftWidth<SEPARATORWIDTH*2?500:SEPARATORWIDTH)}}>
-                <MDBIcon icon={`angle-${leftWidth<SEPARATORWIDTH*2?"right":"left"}`} /></MDBBtn>
+                <MDBIcon icon="angle-left" /></MDBBtn>
             <MDBBtn style={{...styles.btn,...styles.btnModal}} color={color.replace('-color','')}
                 onClick={()=>setIsModalOpen(!isModalOpen)}><MDBIcon icon="ellipsis-v" /></MDBBtn>
             <Modal {...{color,setColor,filename,setFilename,isModalOpen,setIsModalOpen,}}/>
@@ -147,7 +168,7 @@ Demo.propTypes = {
 Demo.defaultProps = {
     /*----------main----------*/
     path     :null,
-    color    :'default-color',
+    color    :'elegant-color',
     source   :''  ,
 };
 

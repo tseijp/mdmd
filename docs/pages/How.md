@@ -42,8 +42,6 @@ Mdmd can easily install into your React app!|
 >>>const state = {/*your style*/}
 >>>const App =()=> <Mdmd md={MyText} {...state}>
 >>>```
->>> React MarkdownのOptionsを利用できます．
->>> 利用方法は仕方は後述もしくはReact Markdownのgitをご覧ください．  
 >>>
 >>> ![Details of the options]()|  
 >>> :-|  
@@ -66,9 +64,7 @@ Mdmd can easily install into your React app!|
 
 ***
 
->>># Mdmd Options Example
->>>Mdmdはいくつかのoptionに対応してます.
->>>  
+>>>### Mdmd Options Example
 >>>```
 >>>const color = "default-color"
 >>>const style = {margin:"auto"}
@@ -79,7 +75,7 @@ Mdmd can easily install into your React app!|
 >>>const state = {color, style, styleList, styleText}
 >>>```
 >>>  
->>> ![]()|  
+>>> ![Mdmd supports flexible options]()|  
 >>> :-|  
 >>> className, color and style are given to all renderer components. |
 >>> colors can be selected from a bootstrap palette.[_More_](https://mdbootstrap.com/docs/react/css/colors)|  
@@ -141,7 +137,8 @@ Mdmd can easily install into your React app!|
 ***
 
 
->>>### How to hack React-Markdown [_Learn More_](https://github.com/rexxars/react-markdown)
+>>>### How to hack React-Markdown
+>>>[_Learn More_](https://github.com/rexxars/react-markdown)
 >>>COMING SOON
 >
 >>> ### React Markdown Options  

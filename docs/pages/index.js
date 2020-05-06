@@ -1,8 +1,7 @@
 import React from 'react';
 import {MDBEdgeHeader,MDBFreeBird,MDBContainer} from 'mdbreact';
-//import Mdmd from './mdmd';  //production
-import Mdmd from "../../src"; //develop&test
-//import Demo from './Demo';
+import Mdmd from '../mdmd';  //production
+//import Mdmd from "../../src"; //develop&test
 import About     from './About.md';
 import Basic     from './Basic.md';
 import Component from './Component.md';
@@ -33,7 +32,7 @@ const RootCustom = (props) => {
 const state = {
     renderers : {root: RootCustom},
     styleRoot : {padding:"5000px"},
-    color     :   "success-color" ,
+    color     :   "default-color" ,
 }
 const AboutPage     = (props) => <Mdmd {...state} md={About}    />
 const BasicPage     = (props) => <Mdmd {...state} md={Basic}    />
@@ -44,7 +43,6 @@ const GridPage      = (props) => <Mdmd {...state} md={Grid}     />
 const HelpPage      = (props) => <Mdmd {...state} md={Help}     />
 const HowPage       = (props) => <Mdmd {...state} md={How}      />
 
-//export default Demo;
 export {
     AboutPage     as About  ,
     BasicPage     as Basic  ,

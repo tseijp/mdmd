@@ -943,26 +943,26 @@ const Modal = props => {
       lineNumber: 19,
       columnNumber: 17
     }
-  }, console.log(card.column.label[0].props), /*#__PURE__*/React.createElement(MDBModalHeader, {
+  }, /*#__PURE__*/React.createElement(MDBModalHeader, {
     toggle: () => setModalNum(null),
     __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 21
     }
   }, card.column.label[0].props.children), /*#__PURE__*/React.createElement(MDBModalBody, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 21
     }
   }, card.rows), /*#__PURE__*/React.createElement(MDBModalFooter, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 21
     }
   }, /*#__PURE__*/React.createElement(MDBBtn, _extends({}, state, {
@@ -970,7 +970,7 @@ const Modal = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName$d,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 23
     }
   }), "Close"))))));
@@ -1828,11 +1828,14 @@ var _jsxFileName$q = "C:\\Users\\yousei takei\\_dj\\mdmd\\src\\Mdmd.js";
 const renderersKey = Object.keys(Renderers);
 
 const Mdmd$8 = props => {
-  /******************** for props.path ********************/
+  /******************** for props.md ********************/
   const [source, setSource] = useState(props.source);
   useEffect(() => {
-    if (props.path) fetch(props.path).then(res => res.text()).then(res => setSource(res));
-  }, [source, props.path]);
+    if (props.md || props.path) fetch(props.md || props.path).then(res => res.text()).then(res => setSource(res));
+  }, [props.md, props.path]);
+  useEffect(() => {
+    if (props.source && source !== props.source) setSource(props.source);
+  }, [source, props.source]);
   /******************** for render () ********************/
 
   const renderersMdmd = Object.assign(...renderersKey.map(key => {
@@ -1853,7 +1856,7 @@ const Mdmd$8 = props => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName$q,
-          lineNumber: 29,
+          lineNumber: 33,
           columnNumber: 35
         }
       }))
@@ -1877,14 +1880,14 @@ const Mdmd$8 = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName$q,
-      lineNumber: 42,
+      lineNumber: 46,
       columnNumber: 9
     }
   }, /*#__PURE__*/React.createElement(ReactMarkdown, _extends({}, optionsState, state, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName$q,
-      lineNumber: 43,
+      lineNumber: 47,
       columnNumber: 13
     }
   })));
@@ -1902,13 +1905,16 @@ Mdmd$8.propTypes = {
 };
 Mdmd$8.defaultProps = {
   /*----------main----------*/
+  md: null,
+
+  /*===*/
   path: null,
   source: '',
   renderers: {},
 
   /*----------sub----------*/
   className: '',
-  color: "default",
+  color: "default-color",
   style: {},
   ...Object.assign(...renderersKey.map(k => ({
     [`className${k}`]: null
