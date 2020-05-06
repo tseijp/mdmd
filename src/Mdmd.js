@@ -21,7 +21,7 @@ const Mdmd = (props) => {
     useEffect(()=>{
         if(source!==props.source)
             setSource(props.source)
-    }, [source,props.source])
+    }, [source, props.source])
     /******************** for render () ********************/
     const renderersMdmd = Object.assign(...renderersKey.map(key=>{
         const lowerKey  = key.charAt(0).toLowerCase() + key.slice(1);

@@ -116,7 +116,7 @@ const Demo = (props) => {
                     <AceEditor ref={aceEditorRef} value={source}
                         name="UNIQUE_ID_OF_DIV" mode="markdown" theme="github"
                         width="100%" height="100%"
-                        onChange={(value)=>setSource(value)}
+                        onChange={(value)=>setSource(value)}                    {/*TODO determine to run setSource by time*/}
                         editorProps={{ $blockScrolling: false }}/>
                 </MDBContainer>
             </div>
