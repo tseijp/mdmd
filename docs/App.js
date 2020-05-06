@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Demo from './Demo';
 import * as Pages from './pages';
-
-class App extends React.Component {
+export default class App extends React.Component {
     render () {
         return (
             <Router>
                 <Switch>
+                    <Route exact path="/" component={Demo} />
                     {Object.keys(Pages).map((key, i)=>
                         <Route key={key} exact path={'/'+key} component={Pages[key]} />
                     )}
@@ -16,6 +17,4 @@ class App extends React.Component {
             </Router>
         );
     }
-}
-
-export default App;
+};

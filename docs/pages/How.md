@@ -4,11 +4,11 @@ Mdmd can easily install into your React app!|
 
 ***
 >>>### Get started
->>>__via props of path__
+>>>__via props of Markdown file__
 >>>```
 >>>import Mdmd from 'mdmd';
 >>>import MyText from 'MyText.md'
->>>const App =()=> <Mdmd path={MyText}/>
+>>>const App =()=> <Mdmd md={MyText}/>
 >>>```
 >>>
 >>>__via props of source__
@@ -40,7 +40,7 @@ Mdmd can easily install into your React app!|
 >>>import Mdmd from 'mdmd';
 >>>import MyText from 'MyText.md'
 >>>const state = {/*your style*/}
->>>const App =()=> <Mdmd path={MyText} {...state}>
+>>>const App =()=> <Mdmd md={MyText} {...state}>
 >>>```
 >>> React MarkdownのOptionsを利用できます．
 >>> 利用方法は仕方は後述もしくはReact Markdownのgitをご覧ください．  
@@ -55,8 +55,8 @@ Mdmd can easily install into your React app!|
 >>> ### Mdmd Main Option
 >>> option name | props type | props default | help  
 >>> :-|:-|:-|:-  
+>>> md                   |[_Module_]() |`null`|The Module of Markdown File to read source.  
 >>> __source__           |[_string_]() | `''` |The Markdown source to parse.  
->>> __path__             |[_Module_]() |`null`|The File Path to read source.  
 >>> __renderers__        |[_object_]() |`object`|An object where the keys represent the node type and the value is a React component.  
 >>> __plugins__          |[_array_]()  |`[]`|An array of unified/remark parser plugins.  
 >>> __parserOptions__    |[_object_]() |`[]`|An object containing options to pass to [_remark-parse_](https://github.com/remarkjs/remark/tree/master/packages/remark-parse)..  
@@ -164,7 +164,8 @@ Mdmd can easily install into your React app!|
 
 ***
 
-- [_MDMD_](/about)
+- [_MDMD_](/)
+- [_About_](/about)
 - [_Basic_](/basic)
 - [_Component_](/component)
 - [_Container_](/container)

@@ -20,7 +20,6 @@ const Modal = (props) => {
                     fullHeight position="right"
                     isOpen={modalNum===i}
                     toggle={()=>setModalNum(null)} >
-                    {console.log(card.column.label[0].props)}
                     <MDBModalHeader toggle={()=>setModalNum(null)}>
                         {card.column.label[0].props.children}</MDBModalHeader>
                     <MDBModalBody>

@@ -32,7 +32,7 @@ const dependencies = Object.keys(pkg.dependencies)||[];
 export default {
     input: './src/index.js',
     output:[
-        { file: "docs/pages/mdmd.js", format: 'cjs' },
+        { file: "docs/mdmd.js", format: 'cjs' },
         { file: pkg.main   , format: 'cjs' },
         { file: pkg.module , format: 'es'  }],
     external:dependencies,

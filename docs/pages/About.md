@@ -26,7 +26,8 @@ You can easily use Bootstrap __grid layouts__ with Markdown. | This framework ca
 
 ***
 
-- [_MDMD_](/about)
+- [_MDMD_](/)
+- [_About_](/about)
 - [_Basic_](/basic)
 - [_Component_](/component)
 - [_Container_](/container)

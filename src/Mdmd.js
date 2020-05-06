@@ -12,12 +12,16 @@ import * as Renderers from './components';
 
 const renderersKey   = Object.keys(Renderers);
 const Mdmd = (props) => {
-    /******************** for props.path ********************/
+    /******************** for props.md ********************/
     const [source, setSource] = useState(props.source);
     useEffect(()=>{
-        if (props.path)
-            fetch(props.path).then(res=>res.text()).then(res=>setSource(res));
-    }, [source, props.path])
+        if (props.md||props.path)
+            fetch(props.md||props.path).then(res=>res.text()).then(res=>setSource(res));
+    }, [props.md, props.path])
+    useEffect(()=>{
+        if(source!==props.source)
+            setSource(props.source)
+    }, [source,props.source])
     /******************** for render () ********************/
     const renderersMdmd = Object.assign(...renderersKey.map(key=>{
         const lowerKey  = key.charAt(0).toLowerCase() + key.slice(1);
@@ -30,7 +34,7 @@ const Mdmd = (props) => {
     }));
     const renderers = {
         ...renderersMdmd, ...props.renderers}
-     const plugins = [RemarkMathPlugin]
+    const plugins = [RemarkMathPlugin]
     const state = {source, renderers, plugins}
     const options = [
         'escapeHtml','skipHtml','sourcePos','rawSourcePos','includeNodeIndex',
@@ -57,12 +61,12 @@ Mdmd.propTypes = {
 
 Mdmd.defaultProps = {
     /*----------main----------*/
-    path     :null,
+    md       :null, /*===*/path     :null,
     source   :''  ,
     renderers:{},
     /*----------sub----------*/
     className: '',
-    color:"default",
+    color:"default-color",
     style:{},
  ...Object.assign(...renderersKey.map( k=>({[`className${k}`]:null}) )),
  ...Object.assign(...renderersKey.map( k=>({[`color${k}`]:null}) )),

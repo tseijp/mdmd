@@ -1,8 +1,8 @@
 import React from 'react';
-import {MDBContainer,MDBFreeBird,MDBEdgeHeader} from 'mdbreact';
-//import Mdmd from './mdmd';
-import Mdmd from "../../src";
-
+import {MDBEdgeHeader,MDBFreeBird,MDBContainer} from 'mdbreact';
+//import Mdmd from './mdmd';  //production
+import Mdmd from "../../src"; //develop&test
+//import Demo from './Demo';
 import About     from './About.md';
 import Basic     from './Basic.md';
 import Component from './Component.md';
@@ -12,7 +12,7 @@ import Grid      from './Grid.md';
 import Help      from './Help.md';
 import How       from './How.md';
 
-const Root = (props) => {
+const RootCustom = (props) => {
     const style = {
         backgroundImage:"url('https://mdbootstrap.com/wp-content/uploads/2016/12/big-bundle1.jpg')",
         backgroundColor:"#123456",
@@ -21,8 +21,7 @@ const Root = (props) => {
         filter:"blur(3px) opacity(.3) drop-shadow(5px -25px 50px blue) hue-rotate(-90deg) ",}
     return (
         <main>
-            <MDBEdgeHeader style={style}>
-            </MDBEdgeHeader>
+            <MDBEdgeHeader style={style} />
             <MDBFreeBird>
                 <MDBContainer {...props}>
                     {props.children}
@@ -31,18 +30,21 @@ const Root = (props) => {
         </main>
     )
 }
-const renderers = {root:Root}
-const state = { renderers,styleRoot:{padding:"5000px"}, color:"success-color"}
+const state = {
+    renderers : {root: RootCustom},
+    styleRoot : {padding:"5000px"},
+    color     :   "success-color" ,
+}
+const AboutPage     = (props) => <Mdmd {...state} md={About}    />
+const BasicPage     = (props) => <Mdmd {...state} md={Basic}    />
+const ComponentPage = (props) => <Mdmd {...state} md={Component}/>
+const ContainerPage = (props) => <Mdmd {...state} md={Container}/>
+const ContentPage   = (props) => <Mdmd {...state} md={Content}  />
+const GridPage      = (props) => <Mdmd {...state} md={Grid}     />
+const HelpPage      = (props) => <Mdmd {...state} md={Help}     />
+const HowPage       = (props) => <Mdmd {...state} md={How}      />
 
-const AboutPage     = (props) => <Mdmd {...state} path={About}    />
-const BasicPage     = (props) => <Mdmd {...state} path={Basic}    />
-const ComponentPage = (props) => <Mdmd {...state} path={Component}/>
-const ContainerPage = (props) => <Mdmd {...state} path={Container}/>
-const ContentPage   = (props) => <Mdmd {...state} path={Content}  />
-const GridPage      = (props) => <Mdmd {...state} path={Grid}     />
-const HelpPage      = (props) => <Mdmd {...state} path={Help}     />
-const HowPage       = (props) => <Mdmd {...state} path={How}      />
-
+//export default Demo;
 export {
     AboutPage     as About  ,
     BasicPage     as Basic  ,

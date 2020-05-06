@@ -78,7 +78,8 @@ Containers provide a means to center your site’s contents.|
 
 ***
 
-- [_MDMD_](/about)
+- [_MDMD_](/)
+- [_About_](/about)
 - [_Basic_](/basic)
 - [_Component_](/component)
 - [_Container_](/container)

@@ -94,7 +94,8 @@ With the attractive plugins, you can use Syntax Highlight and Mathjax.   |
 
 ***
 
-- [_MDMD_](/about)
+- [_MDMD_](/)
+- [_About_](/about)
 - [_Basic_](/basic)
 - [_Component_](/component)
 - [_Container_](/container)

@@ -113,7 +113,8 @@ How to set up the buttons and Images, Please click [_here_](/content)|
 
 ***
 
-- [_MDMD_](/about)
+- [_MDMD_](/)
+- [_About_](/about)
 - [_Basic_](/basic)
 - [_Component_](/component)
 - [_Container_](/container)
