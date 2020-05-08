@@ -10,7 +10,7 @@ import replace from 'rollup-plugin-replace';
 
 //import css from 'rollup-plugin-css-porter';
 //import svg from 'rollup-plugin-svg';
-import uglify from 'rollup-plugin-uglify-es';
+//import uglify from 'rollup-plugin-uglify-es';
 
 const namedExports= {'node_modules/react/index.js':['Component','useState',]}
 const plugins = [
@@ -23,16 +23,15 @@ const plugins = [
   replace({ 'process.env.NODE_ENV': JSON.stringify('production') }), //Replace strings in files while bundling
   babel({ runtimeHelpers: true,exclude: 'node_modules/**', presets:['@babel/env','@babel/preset-react']}),// Compile your files with Babel
   nodeResolve({ browser: true }),
-  commonjs({namedExports})
+  commonjs({namedExports}),
 ];
 
-import pkg from './package.json';
+import pkg from '../package.json';
 const dependencies = Object.keys(pkg.dependencies)||[];
 
 export default {
     input: './src/index.js',
     output:[
-        { file: "docs/mdmd.js", format: 'cjs' },
         { file: pkg.main   , format: 'cjs' },
         { file: pkg.module , format: 'es'  }],
     external:dependencies,

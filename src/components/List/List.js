@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import {MDBListGroup} from 'mdbreact';
 const List = (props) => {
     const {className} = props;
-    const state = {className};
-    const style={margin:"auto auto"};
+    const style = {margin:"auto auto",...props.style};
+    const state = {className, style};
     return (
           <MDBListGroup {...state} style={style}>
               {props.children}

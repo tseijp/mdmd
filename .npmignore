@@ -1,9 +1,11 @@
+.git
+.gitignore
 build
 config
 docs
+node_modules
 public
 scripts
 src
-
 debug.log
 rollup.config.js

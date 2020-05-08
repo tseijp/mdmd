@@ -7,8 +7,9 @@ import {
     MDBContainer, MDBFreeBird, MDBEdgeHeader, MDBIcon, MDBBtn,
     MDBModal, MDBModalBody, MDBModalHeader, /*MDBModalFooter*/} from "mdbreact";
 
-//import Mdmd from "../src"; //develop&test
-import Mdmd from "./mdmd"; //productions
+//import Mdmd from "./mdmd"; //productions
+import Mdmd from "../src"; //develop&test
+
 import About     from './pages/About.md';
 import Basic     from './pages/Basic.md';
 import Component from './pages/Component.md';
