@@ -6,7 +6,7 @@ Markdown table syntax makes it easy to create an effective table. |
 In addition, you can reproduce bootstrap UIs by using the same syntax.|  
 For example, you can add Tabs by placing a button in table columns. |  
 If you set Images in the same way, it will be recognized as a Cards.|  
-How to set up the buttons and Images, Please click [_here_](/content)|  
+How to set up the buttons and Images, Please click [_here_](/mdmd/content)|  
 
 
 
@@ -113,15 +113,15 @@ How to set up the buttons and Images, Please click [_here_](/content)|
 
 ***
 
-- [_MDMD_](/)
-- [_About_](/about)
-- [_Basic_](/basic)
-- [_Component_](/component)
-- [_Container_](/container)
-- [_Content_](/content)
-- [_Grid_](/grid)
-- [_Help_](/help)
-- [_How_](/how)
+- [_MDMD_](/mdmd/)
+- [_About_](/mdmd/about)
+- [_Basic_](/mdmd/basic)
+- [_Component_](/mdmd/component)
+- [_Container_](/mdmd/container)
+- [_Content_](/mdmd/content)
+- [_Grid_](/mdmd/grid)
+- [_Help_](/mdmd/help)
+- [_How_](/mdmd/how)
 
 
 - [__twitter__](https://twitter.com/tseijp)

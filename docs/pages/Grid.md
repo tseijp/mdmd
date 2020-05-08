@@ -75,15 +75,15 @@ Containers provide a means to center your site’s contents.|
 
 ***
 
-- [_MDMD_](/)
-- [_About_](/about)
-- [_Basic_](/basic)
-- [_Component_](/component)
-- [_Container_](/container)
-- [_Content_](/content)
-- [_Grid_](/grid)
-- [_Help_](/help)
-- [_How_](/how)
+- [_MDMD_](/mdmd/)
+- [_About_](/mdmd/about)
+- [_Basic_](/mdmd/basic)
+- [_Component_](/mdmd/component)
+- [_Container_](/mdmd/container)
+- [_Content_](/mdmd/content)
+- [_Grid_](/mdmd/grid)
+- [_Help_](/mdmd/help)
+- [_How_](/mdmd/how)
 
 
 - [__twitter__](https://twitter.com/tseijp)

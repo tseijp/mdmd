@@ -6,7 +6,7 @@
   "module": "dist/mdmd.esm.js",
   "license": "MIT",
   "author": "tseijp",
-  "homepage": ".",
+  "homepage": "/",
   "repository": "https://github.com/tseijp/mdmd",
   "bugs": "https://github.com/tseijp/mdmd/issues",
   "description": "React Markdown with Material Design",

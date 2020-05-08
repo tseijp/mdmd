@@ -8,11 +8,10 @@ export default class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path="/" component={Demo} />
                     {Object.keys(Pages).map((key, i)=>
-                        <Route key={key} exact path={'/'+key} component={Pages[key]} />
+                        <Route key={key} exact path={'/mdmd/'+key} component={Pages[key]} />
                     )}
-                    <Route render={()=><h1>Not Found</h1>}/>
+                    <Route component={Demo}/>
                 </Switch>
             </Router>
         );
