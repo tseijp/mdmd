@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/tseijp/mdmd"><img alt="build passin"src="https://img.shields.io/badge/build-passing-green.svg"/></a>
   <a href="https://github.com/tseijp/mdmd"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-green.svg"/></a>
-  <a href="https://www.npmjs.com/package/@tsei/mdmd"><img alt="npm package" src="https://img.shields.io/badge/npm_package-1.1.0-green.svg"/></a>
+  <a href="https://www.npmjs.com/package/@tsei/mdmd"><img alt="npm package" src="https://img.shields.io/badge/npm_package-1.1.1-green.svg"/></a>
   <a href="https://twitter.com/tseijp" ><img alt="twitter URL" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftseijp"/></a>
 </p>
 

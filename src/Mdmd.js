@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import ReactMarkdown from 'react-markdown';
 
 //import Radium from 'radium';
@@ -12,18 +12,23 @@ import * as Renderers from './components';
 
 const renderersKey   = Object.keys(Renderers);
 const Mdmd = (props) => {
-    /******************** for props.md ********************/
+    /******************** for props.source ********************/
     const [source, setSource] = useState(props.source);
     useEffect(()=>{
         if (props.md||props.path)
             fetch(props.md||props.path).then(res=>res.text()).then(res=>setSource(res));
     }, [props.md, props.path])
     useEffect(()=>{
-        if(props.source && source!==props.source)
+        if(props.source)
             setSource(props.source)
-    }, [source, props.source])
-    /******************** for render () ********************/
-    const renderersMdmd = Object.assign(...renderersKey.map(key=>{
+    }, [props.source])
+    /******************** for options ********************/
+    const [options] = useState([
+        'escapeHtml','skipHtml','sourcePos','rawSourcePos','includeNodeIndex',
+        'allowedTypes','disallowedTypes','unwrapDisallowed','allowNode','linkTarget',
+        'transformLinkUri', 'transformImageUrl',
+    ].filter(name=>name in props).map(name=>( {[name]:props[name]} )));
+    const [renderersMdmd] = useState(Object.assign(...renderersKey.map(key=>{
         const lowerKey  = key.charAt(0).toLowerCase() + key.slice(1);
         const Renderer  = Renderers[key];
         const className = [props.className, props[`className${key}`]].filter(c=>c).join(' ')
@@ -31,20 +36,16 @@ const Mdmd = (props) => {
         const style     = {...props.style    ,...props[`style${key}`]}
         const state     = {className, color, style,}
         return {[lowerKey]:props=><Renderer {...state} {...props}/>}
-    }));
-    const renderers = {
-        ...renderersMdmd, ...props.renderers}
-    const plugins = [RemarkMathPlugin]
-    const state = {source, renderers, plugins}
-    const options = [
-        'escapeHtml','skipHtml','sourcePos','rawSourcePos','includeNodeIndex',
-        'allowedTypes','disallowedTypes','unwrapDisallowed','allowNode','linkTarget',
-        'transformLinkUri', 'transformImageUrl',
-    ].filter(name=>name in props).map(name=>( {[name]:props[name]} ))
-    const optionsState = options.length?Object.assign(...options):{}
+    })));
+    /******************** performance ********************/
+    const plugins = useMemo(()=>[props.plugin, RemarkMathPlugin]                , [props.plugin])
+    const renderers = useMemo(()=>({...renderersMdmd,...props.renderers})       , [props.renderers, renderersMdmd])
+    const optionState = useMemo(()=>options.length?Object.assign(...options):{} , [options])
+    const markdownRef = useMemo(()=>props.markdownRef?{ref:props.markdownRef}:{}, [props.markdownRef])
+    const state = useMemo(()=>({plugins, renderers,...optionState, markdownRef}), [plugins, renderers, optionState, markdownRef])
     return (
         <MathJax.Provider input="tex">
-            <ReactMarkdown {...optionsState} {...state} />
+            <ReactMarkdown {...state} source={source}/>
         </MathJax.Provider>
     )
 };
