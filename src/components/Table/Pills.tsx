@@ -1,0 +1,43 @@
+import React, {FC,Fragment,useState} from 'react';
+import {BaseProps} from '../../types';
+import {TablesProps} from './index';
+import {MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+
+export const Pills:FC<TablesProps> =({
+        isPill=true, /*color, style,*/ columns=[], rows=[],
+        children, className='', color='', style={}
+    }) => {
+    const [tab, setTab] = useState(0)
+    //const getarr =arr=>arr?arr instanceof Array?arr:[arr]:[]
+    //const isPill = columns.every( col=>col.label.every(c=>getAnyChild(c.props,'emphasis').length) )
+    const cards = columns.map((column,i)=>(
+        {column, rows:rows.map(row=>row[''+i])}
+    ))
+    const togglePills =(e:any, num:number) => {
+        e.preventDefault(); //?
+        if (tab!==num)
+            setTab(num);
+    };
+    return (
+        <Fragment>
+            <MDBNav style={{border:"none"}}
+                className={className+` mt-5 nav-${isPill?'pills':'tabs'}`}>
+                {cards && cards.map((card,i)=>
+                <MDBNavItem key={i}>
+                   <MDBNavLink link to="#" active={tab===(i)}
+                      onClick={(e:any)=>togglePills(e,i)} >
+                      {card.column.label.map((l:any)=>l.props.children)}
+                    </MDBNavLink>
+                </MDBNavItem>
+                )}
+            </MDBNav>
+            <MDBTabContent activeItem={""+tab}>
+                {cards && cards.map((card,i)=>
+                <MDBTabPane key={i} tabId={i+""}>
+                    <p> {card.rows} </p>
+                </MDBTabPane>
+                )}
+          </MDBTabContent>
+        </Fragment>
+    );
+}
