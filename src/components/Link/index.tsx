@@ -1,15 +1,10 @@
 import React, {ReactChild as RC, FC} from 'react';
-import {BaseProps} from '../../types';
+import {LinkProps} from '../../types';
 import {getLevel} from '../../utils'
 //import Radium from 'radium';
 //import PropTypes from 'prop-types';
 //import classNames from 'classnames';
 import {Button} from './Button'
-
-export interface LinkProps extends BaseProps {
-    social?:string,
-    href?:string,
-}
 
 export const Link:FC<LinkProps> = ({
         social='', href='',

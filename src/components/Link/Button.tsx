@@ -1,14 +1,6 @@
 import React, {FC,useState} from 'react';
-import {BaseProps, buttonColor} from '../../types';
+import {ButtonProps, buttonColor} from '../../types';
 import {MDBBadge, MDBBtn, MDBTooltip} from 'mdbreact'
-
-export interface ButtonProps extends BaseProps {
-    level ?:number,
-    social?:string,
-    href  ?:string,
-    onClick?:()=>void,
-}
-
 
 export const Button:FC<ButtonProps> = ({
         level=1,social='',href='',onClick=()=>{console.log('Clicked')},

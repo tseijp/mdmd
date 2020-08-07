@@ -1,13 +1,9 @@
 import React, {FC,CSSProperties,useMemo} from 'react';
-import {BaseProps} from '../../types';
+import {CardsProps} from '../../types';
 import {MDBRow,MDBCol,MDBCard,MDBCardBody,MDBCardImage,
         MDBCardTitle,MDBCardText,MDBAnimation} from 'mdbreact';
 
-export interface CardsProps extends BaseProps {
-    columns?:any,
-    rows   ?:any,
-    argments?:any,
-}
+
 export const Cards :FC<CardsProps> = ({columns, rows, argments}) => {
     const cards = columns.map((column:any,i:number)=>(
         {column, rows:rows.map((row:any)=>row[''+i]), argment:argments[i]}

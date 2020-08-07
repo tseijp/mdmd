@@ -1,7 +1,8 @@
 import React, {ReactChild as RC, FC} from 'react';
 import {getLevel} from '../../utils';
+import {ImageProps} from '../../types';
 import {MDBIcon} from 'mdbreact';
-import {ImageView, ImageProps} from './Image';
+import {ImageView} from './Image';
 
 export const Image:FC<ImageProps> = ({children,alt='',...props}) => {
     if (!children || alt.slice(0,1).match(':'))

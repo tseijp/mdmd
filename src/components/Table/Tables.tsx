@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {TableProps} from './index'
+import {TableProps} from '../../types'
 import { MDBDataTable} from 'mdbreact';
 export const Tables:FC<TableProps> = ({
         maxHeight="300px",

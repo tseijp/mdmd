@@ -1,31 +1,11 @@
 import React, {FC} from 'react';
-import {BaseProps} from '../../types';
+import {TableProps, TablesProps} from '../../types';
 import {getarr,gettrs,getths,getcol,getrow,getkey,getIsX} from '../../utils'
 import {Cards} from './Cards';
 import {Tables} from './Tables';
 import {Pills} from './Pills';
 import {Modal} from './Modal';
 
-export interface TableProps extends BaseProps {
-    maxHeight?:string,
-    bordered ?:boolean,
-    paging   ?:boolean,
-    searching?:boolean,
-    scrollX  ?:boolean,
-    scrollY  ?:boolean,
-    small    ?:boolean,
-    sorting  ?:boolean,
-    striped  ?:boolean,
-    columnAlignment?:undefined, //TODO
-    indexProps?:any, data?:any  // TODO
-}
-export interface TablesProps extends BaseProps {
-    columns ?: any[],
-    rows    ?:any[],
-    keys    ?:any[],
-    argments?:undefined,
-    isPill  ?:boolean
-}
 export const Table:FC<TableProps> = ({
         columnAlignment=undefined,
         children, className='', color='', style={}, ...props

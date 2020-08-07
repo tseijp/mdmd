@@ -1,6 +1,5 @@
 import React, {FC, Fragment, useState} from 'react';
-import {buttonColor} from '../../types';
-import {TablesProps} from './index';
+import {buttonColor, TablesProps, } from '../../types';
 import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 export const Modal:FC<TablesProps> = ({

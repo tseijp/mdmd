@@ -1,5 +1,5 @@
 import React, {FC,Fragment,useState} from 'react';
-import {TablesProps} from './index';
+import {TablesProps} from '../../types';
 import {MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 
 export const Pills:FC<TablesProps> =({

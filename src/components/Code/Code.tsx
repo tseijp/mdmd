@@ -1,19 +1,12 @@
 import React, {FC} from "react";
-import {BaseProps} from "../../types";
+import {CodeProps} from "../../types";
 //import {MDBTooltip} from 'mdbreact';
 //import PropTypes from 'prop-types';
 //import { atomOneLight as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 //import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 const atomOneLight = require('react-syntax-highlighter/dist/esm/styles/hljs')
-const atomOneDark = require('react-syntax-highlighter/dist/esm/styles/hljs')
-const Light = require('react-syntax-highlighter')
-
-export interface CodeProps extends BaseProps {
-    value   ?:string,
-    language?:string,
-    inline  ?:boolean,
-    dark    ?:boolean,
-}
+const atomOneDark  = require('react-syntax-highlighter/dist/esm/styles/hljs')
+const Light        = require('react-syntax-highlighter')
 
 export const Code:FC<CodeProps> = ({value="", language="javascript", inline=false,dark=false}) => {
     //const [isCopied, setIsCopied] = useState(false);
