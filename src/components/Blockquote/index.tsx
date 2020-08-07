@@ -1,4 +1,4 @@
-import React, {Children, FC} from 'react';
+import React, {FC} from 'react';
 import {BaseProps} from '../../types';
 import {getChild} from '../../utils';
 import {Grid} from './Grid';
@@ -7,10 +7,10 @@ import {Grid} from './Grid';
 //import classNames from 'classnames';
 import {MDBTypography,MDBBox} from 'mdbreact';
 export const Blockquote:FC<BaseProps> = ({children, className='', color='', style={}}) => {
-    const child = getChild(children);
-    if (child instanceof Array && child.every(c=>!(c instanceof Array))){
-        return  <MDBTypography blockquote><MDBBox tag="div" mb={0}>{child}</MDBBox></MDBTypography>}
-    return <Grid {...{className, color, style, child}}/>
+    const child = getChild(children as React.ReactElement);
+    if ( child instanceof Array && child.every((c:any)=>!(c instanceof Array)) )
+        return <Grid {...{className, color, style, child}} />
+    return  <MDBTypography blockquote><MDBBox tag="div" mb={0}>{child}</MDBBox></MDBTypography>
 };
 
 /*

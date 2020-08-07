@@ -7,7 +7,7 @@ import React, {FC, Children, useState} from 'react';
 import {BaseProps} from '../../types';
 import {getarr as getArray,getText,getLink} from '../../utils'
 //import PropTypes from 'prop-types';
-import {MDBNavbar,MDBNavbarBrand,MDBNavbarNav,MDBNavItem,MDBNavLink,MDBNavbarToggler,MDBCollapse} from "mdbreact";
+import {MDBNavbar,/*MDBNavbarBrand,*/MDBNavbarNav,MDBNavItem,MDBNavLink,MDBNavbarToggler,MDBCollapse} from "mdbreact";
 export const Navi:FC<BaseProps> = ( {className,color,style,...props}) => {
     const children = Children.toArray(props.children)
     const [isOpen, setIsOpen] = useState(false)

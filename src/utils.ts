@@ -1,13 +1,5 @@
 import {ReactNode as RN, Children} from 'react'
 
-export const getChild = (children:RN, depth=0):any => {
-    console.log(children);
-    return Children.map(children, (child:RN)=>child?.key&&child.key.match('blockquote')
-        ? getChild(child?.props?.children, depth+1)
-        : child
-    )
-}
-
 // FOR TABLE
 export const getarr=(arr:any)=>arr?arr instanceof Array?arr:[arr]:[]
 export const gettrs=(els:any[])=>[].concat(...(els.map(el=>getarr(el?.props?.children)) as never[]));
@@ -27,8 +19,16 @@ export const getAnyGr:GetAnyGr=(children,k,l)=>getAnyCh(children,k).map(c=>getAn
 export const getText=(children:any)=>getarr(children).map(c=>c.key&&c.key.match('link')?c.props.children:c)
 export const getLink=(children:any)=>getarr(children).map(c=>c.key&&c.key.match('link')?c.props.href:'#!').filter(n=>n)[0]||'#!'
 
-export const getLevel = (children:any) : number => {
-    const keys = Children.map(children, (e:any)=>e.key).filter((k:any)=>k) as string[]
+export const getChild = (children:RN, depth=0) : any => {
+    return Children.map(children, (child:any)=>child?.key&&child.key.match('blockquote')
+        ? getChild(child?.props?.children, depth+1)
+        : child
+    )
+}
+
+export const getLevel = (children:RN) : number => {
+    if (!children) return 0
+    const keys = Children.toArray(children).map((c:any)=>c?.key).filter((k:any)=>k) as string[]
 //  const is_w= keys.every(key=>key.match('delete'))     //put by delete     ~~e.g.~~ //TODO
     const is_1 = keys.every(key=>key.match('emphasis'))  //put by 1 underbar  _e.g._
     const is_2 = keys.every(key=>key.match('strong'))    //put by 2 underbar __e.g.__

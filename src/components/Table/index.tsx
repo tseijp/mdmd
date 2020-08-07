@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {BaseProps} from '../../types';
-import {getarr,gettrs,getths,getcol,getrow,getkey,getIsX,getAnyCh} from '../../utils'
+import {getarr,gettrs,getths,getcol,getrow,getkey,getIsX} from '../../utils'
 import {Cards} from './Cards';
 import {Tables} from './Tables';
 import {Pills} from './Pills';

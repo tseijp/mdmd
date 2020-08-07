@@ -1,17 +1,14 @@
 import React, {FC} from 'react';
-//import Radium from 'radium';
-import PropTypes from 'prop-types';
-//import classNames from 'classnames';
 import {MDBCol, MDBRow} from 'mdbreact';
-import {BaseProps} from '../../types'
+//import {BaseProps} from '../../types'
 
-export const Grid:FC<BaseProps> = ({children}) => {
+export const Grid:FC<any> = ({child=null}) => {
     const isBlock =(c:any)=> !c?.key || (c?.key?.match('blockquote') || c?.key?.match('paragraph'))
-    const renderChild =(child:any)=> {
-        if (child instanceof Array && child.every(c=>isBlock(c)) )
+    const renderChild =(c:any)=> {
+        if (c && c instanceof Array && c.every(c=>isBlock(c)) )
             return (
                 <MDBRow>
-                {child.map((c,i)=>
+                {c.map((c,i)=>
                     <MDBCol key={i}>
                     {(c instanceof Array)
                         ?renderChild(c)
@@ -20,9 +17,10 @@ export const Grid:FC<BaseProps> = ({children}) => {
                 )}
                 </MDBRow>
             )
-        return child;
+        return c;
     }
-    return renderChild(children)
+    console.log(child)
+    return renderChild(child)
 };
 
 /*
@@ -36,35 +34,35 @@ Grid.defaultProps = {
 */
 
 /*props
-  - children : [blockquote, ]
+  - cren : [blockquote, ]
 
 >if depth = 0 (no \n)
-props.children
-  - child   (key=text)
-    .props.children
-      - child (key=None)
+props.cren
+  - c   (key=text)
+    .props.cren
+      - c (key=None)
 
 >if depth = 0 (include \n)
 
 >>if depth = 1 (include \n)
-props.children
-  - child (key=blockquote)
-    .props.children
-      - child (key=paragraph)
-        .props.children
-          - child (key=text)
-          - child (key=text)...
+props.cren
+  - c (key=blockquote)
+    .props.cren
+      - c (key=paragraph)
+        .props.cren
+          - c (key=text)
+          - c (key=text)...
 
 >>if depth=1
 >  //bind depth=0
 >>?
-props.children
-  - child (key=blockquote)
-    .prosp.children
-      - child (key=paragraph)
-      - child
-        .props.children
-          - child (key=text)
-          - child
-          - child ...
+props.cren
+  - c (key=blockquote)
+    .prosp.cren
+      - c (key=paragraph)
+      - c
+        .props.cren
+          - c (key=text)
+          - c
+          - c ...
 */

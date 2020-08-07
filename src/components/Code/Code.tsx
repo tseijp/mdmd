@@ -12,22 +12,24 @@ export interface CodeProps extends BaseProps {
     value   ?:string,
     language?:string,
     inline  ?:boolean,
+    dark    ?:boolean,
 }
 
-export const Code:FC<CodeProps> = ({value, language, inline=false}) => {
+export const Code:FC<CodeProps> = ({value="", language="javascript", inline=false,dark=false}) => {
     //const [isCopied, setIsCopied] = useState(false);
     const display = inline?"inline-block":"fixed"
     const inlineStyle =inline?{verticalAlign:"top",padding:"0 0"}:{}
     const styles = {
         pre :{position:'relative',display,...inlineStyle},
     }
-    const handleCopy = (e:any,v:any)=> {
+    const handleCopy = (_:any,v:any)=> {
         //setIsCopied(true);
         navigator.clipboard.writeText(v)
     }
     return (
-        <Light PreTag={inline?"span":"pre"} style={atomOneDark}
-            customStyle = {styles.pre}
+        <Light PreTag={inline?"span":"pre"}
+            style={dark?atomOneDark:atomOneLight}
+            customStyle={styles.pre}
             onDoubleClick={(e:any)=>handleCopy(e, value)} useInlineStyles={true}
             showLineNumbers={!inline} language={language}>
             {value}</Light>

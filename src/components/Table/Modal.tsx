@@ -1,5 +1,5 @@
 import React, {FC, Fragment, useState} from 'react';
-import {BaseProps, buttonColor} from '../../types';
+import {buttonColor} from '../../types';
 import {TablesProps} from './index';
 import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 

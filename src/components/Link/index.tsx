@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {ReactChild as RC, FC} from 'react';
 import {BaseProps} from '../../types';
 import {getLevel} from '../../utils'
 //import Radium from 'radium';
@@ -15,9 +15,8 @@ export const Link:FC<LinkProps> = ({
         social='', href='',
         children, className='', color='', style={},
     }) => {
-    const level = getLevel(children)
+    const level = getLevel(children as RC)
     const onClick = ()=>{window.location.href = href}
-    const state = {onClick};
     return (level>0)
     ? <Button {...{level,social,href,onClick,children,className,color,style}} />
     : <span {...{onClick,className,style}}><u>{children}</u></span>;

@@ -1,11 +1,10 @@
 import React, {FC,Fragment,useState} from 'react';
-import {BaseProps} from '../../types';
 import {TablesProps} from './index';
 import {MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 
 export const Pills:FC<TablesProps> =({
         isPill=true, /*color, style,*/ columns=[], rows=[],
-        children, className='', color='', style={}
+        className='', //children, color='', style={}
     }) => {
     const [tab, setTab] = useState(0)
     //const getarr =arr=>arr?arr instanceof Array?arr:[arr]:[]

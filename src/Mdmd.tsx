@@ -2,7 +2,7 @@ import React, {FC, useState, useEffect, useMemo, useRef} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {MdmdProps} from './types'
 import * as Renderers from './components';
-const MathJax = require('react-mathjax');
+//const MathJax = require('react-mathjax');
 const RemarkMathPlugin = require('remark-math');
 
 
@@ -36,11 +36,12 @@ export const Mdmd:FC<MdmdProps> = ({
     const markdownRef = useMemo(()=>props.markdownRef?{ref:props.markdownRef}:{}  , [props.markdownRef])
     //const state = useMemo(()=>({plugins, renderers,...optionState, markdownRef})  , [plugins, renderers, optionState, markdownRef])
     return <ReactMarkdown {...{plugins, renderers, ...optionState, markdownRef, source:nowSource}}/>
+    /*
     return (
         <MathJax.Provider input="tex">
             <ReactMarkdown {...{plugins, renderers, ...optionState, markdownRef, source:nowSource}}/>
         </MathJax.Provider>
-    )
+    )*/
 };
 /*
 Mdmd.defaultProps = {

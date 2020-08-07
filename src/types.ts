@@ -19,7 +19,7 @@ export interface BaseProps {
     color    ?: string,
     style    ?: CSSProperties,
     active   ?: boolean,
-    [key:string]:any
+    [key:string]:any,
 }
 
 export type backgroundColor =

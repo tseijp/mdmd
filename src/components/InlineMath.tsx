@@ -5,6 +5,6 @@ import {BaseProps} from '../types';
 //import classNames from 'classnames';
 import Math from './Math'
 
-export const InlineMath = ({...props}) => {
+export const InlineMath:FC<BaseProps> = ({...props}) => {
     return <Math {...props} inline/>
 }
