@@ -29,12 +29,12 @@ export const Mdmd:FC<MdmdProps> = ({
         return {[lowerKey]:(props:any)=><Renderer {...{className,color,style,...props}} />}
     })));
     /******************** performance ********************/
-    //const plugins = useMemo(()=>[props.plugin, RemarkMathPlugin]                  , [props.plugin])
-    const renderers = useMemo(()=>({...renderersMdmd.current,...props.renderers}) , [props.renderers])
-    const optionState = useMemo(()=>({...options.current, ...props.options})      , [props.options])
-    const markdownRef = useMemo(()=>props.markdownRef?{ref:props.markdownRef}:{}  , [props.markdownRef])
-    //const state = useMemo(()=>({plugins, renderers,...optionState, markdownRef})  , [plugins, renderers, optionState, markdownRef])
-    return <ReactMarkdown {...{/*plugins, */renderers, ...optionState, markdownRef, source:nowSource}} />
+//  const plugins = useMemo(()=>[props.plugin, RemarkMathPlugin]                    , [props.plugin])
+    const renderers   = useMemo(()=>({...renderersMdmd.current,...props.renderers}) , [props.renderers])
+    const optionState = useMemo(()=>({...options.current, ...props.options})        , [props.options])
+    const markdownRef = useMemo(()=>props.markdownRef?{ref:props.markdownRef}:{}    , [props.markdownRef])
+//  const state = useMemo(()=>({plugins, renderers,...optionState, markdownRef})    , [plugins, renderers, optionState, markdownRef])
+    return <ReactMarkdown {...{/*plugins, */renderers, ...optionState, markdownRef  , source:nowSource}} />
     /*
     return (
         <Provider input="tex">
