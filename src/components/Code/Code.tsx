@@ -1,31 +1,25 @@
-import React, {FC} from "react";
+import React, {FC,useCallback,useMemo} from "react";
 import {CodeProps} from "../../types";
 //import {MDBTooltip} from 'mdbreact';
 //import PropTypes from 'prop-types';
 //import { atomOneLight as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 //import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-const atomOneLight = require('react-syntax-highlighter/dist/esm/styles/hljs')
-const atomOneDark  = require('react-syntax-highlighter/dist/esm/styles/hljs')
-const Light        = require('react-syntax-highlighter')
+const {atomOneLight, atomOneDark} = require('react-syntax-highlighter/dist/esm/styles/hljs');
+const {Light}        = require('react-syntax-highlighter')
 
 export const Code:FC<CodeProps> = ({value="", language="javascript", inline=false,dark=false}) => {
     //const [isCopied, setIsCopied] = useState(false);
-    const display = inline?"inline-block":"fixed"
-    const inlineStyle =inline?{verticalAlign:"top",padding:"0 0"}:{}
-    const styles = {
-        pre :{position:'relative',display,...inlineStyle},
-    }
-    const handleCopy = (_:any,v:any)=> {
-        //setIsCopied(true);
-        navigator.clipboard.writeText(v)
-    }
+    const onDoubleClick = useCallback((_:any)=>navigator.clipboard.writeText(value),[value])
+    const customStyle = useMemo<React.CSSProperties>(() => ({
+        position:'relative', display:inline?"inline-block":"fixed",
+        ...(inline?{verticalAlign:"top",padding:"0 0"}:{})
+    }) ,  [ inline ] )
+    const style = useMemo(()=>dark?atomOneDark:atomOneLight, [dark])
+    console.log(value);
     return (
         <Light PreTag={inline?"span":"pre"}
-            style={dark?atomOneDark:atomOneLight}
-            customStyle={styles.pre}
-            onDoubleClick={(e:any)=>handleCopy(e, value)} useInlineStyles={true}
-            showLineNumbers={!inline} language={language}>
-            {value}</Light>
+            useInlineStyles={true} showLineNumbers={!inline}
+            {...{style, customStyle, onDoubleClick, language}}>{value}</Light>
     );
 }
 /*

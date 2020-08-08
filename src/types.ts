@@ -18,7 +18,6 @@ export interface MdmdProps {
 }
 
 // ************************* 🎇 FOR COMPONENTS 🎇 ************************* //
-
 export interface BaseProps {
     className?: string,
     color    ?: string,
@@ -26,7 +25,6 @@ export interface BaseProps {
     active   ?: boolean,
     [key:string]:any,
 }
-
 export interface CodeProps extends BaseProps {
     value   ?:string,
     language?:string,
@@ -34,23 +32,23 @@ export interface CodeProps extends BaseProps {
     dark    ?:boolean,
 }
 export interface ImageProps extends BaseProps {
-    src?:string,
-    alt?:string,
+    src   ?:string,
+    alt   ?:string,
     active?:boolean
 }
 export interface ButtonProps extends BaseProps {
-    level ?:number,
-    social?:string,
-    href  ?:string,
+    level  ?:number,
+    social ?:string,
+    href   ?:string,
     onClick?:()=>void,
 }
 export interface LinkProps extends BaseProps {
     social?:string,
-    href?:string,
+    href  ?:string,
 }
 export interface CardsProps extends BaseProps {
-    columns?:any,
-    rows   ?:any,
+    columns ?:any,
+    rows    ?:any,
     argments?:any,
 }
 export interface TableProps extends BaseProps {
@@ -66,6 +64,12 @@ export interface TableProps extends BaseProps {
     columnAlignment?:undefined, //TODO
     indexProps?:any, data?:any  // TODO
 }
+export interface HeadingProps extends BaseProps {
+    abbr   ?:boolean,
+    active ?:boolean,
+    variant?:''|'responsive',
+    level  ?:number
+}
 export interface TablesProps extends BaseProps {
     columns ?: any[],
     rows    ?:any[],
@@ -74,6 +78,18 @@ export interface TablesProps extends BaseProps {
     isPill  ?:boolean
 }
 // ************************* 📐 FOR MDBOOTSTRAP 📐 ************************* //
+export type TagTypes =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+export type VarTypes = TagTypes
+  | 'h1-responsive'
+  | 'h2-responsive'
+  | 'h3-responsive'
+  | 'h4-responsive'
+  | 'h5-responsive'
 export type backgroundColor =
   | 'danger'
   | 'dark'

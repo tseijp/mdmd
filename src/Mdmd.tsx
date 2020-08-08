@@ -2,9 +2,8 @@ import React, {FC, useState, useEffect, useMemo, useRef} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {MdmdProps} from './types'
 import * as Renderers from './components';
-//const MathJax = require('react-mathjax');
-const RemarkMathPlugin = require('remark-math');
-
+//const {Provider} = require('react-mathjax');
+//const RemarkMathPlugin = require('remark-math');
 
 const renderersKey  = Object.keys(Renderers)
 export const Mdmd:FC<MdmdProps> = ({
@@ -30,18 +29,19 @@ export const Mdmd:FC<MdmdProps> = ({
         return {[lowerKey]:(props:any)=><Renderer {...{className,color,style,...props}} />}
     })));
     /******************** performance ********************/
-    const plugins = useMemo(()=>[props.plugin, RemarkMathPlugin]                  , [props.plugin])
+    //const plugins = useMemo(()=>[props.plugin, RemarkMathPlugin]                  , [props.plugin])
     const renderers = useMemo(()=>({...renderersMdmd.current,...props.renderers}) , [props.renderers])
     const optionState = useMemo(()=>({...options.current, ...props.options})      , [props.options])
     const markdownRef = useMemo(()=>props.markdownRef?{ref:props.markdownRef}:{}  , [props.markdownRef])
     //const state = useMemo(()=>({plugins, renderers,...optionState, markdownRef})  , [plugins, renderers, optionState, markdownRef])
-    return <ReactMarkdown {...{plugins, renderers, ...optionState, markdownRef, source:nowSource}}/>
+    return <ReactMarkdown {...{/*plugins, */renderers, ...optionState, markdownRef, source:nowSource}} />
     /*
     return (
-        <MathJax.Provider input="tex">
-            <ReactMarkdown {...{plugins, renderers, ...optionState, markdownRef, source:nowSource}}/>
-        </MathJax.Provider>
-    )*/
+        <Provider input="tex">
+            <ReactMarkdown {...{plugins, renderers, ...optionState, markdownRef, source:nowSource}} />
+        </Provider>
+    )
+    */
 };
 /*
 Mdmd.defaultProps = {

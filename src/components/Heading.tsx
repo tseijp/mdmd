@@ -1,26 +1,20 @@
-import React, {FC} from 'react';
-import {BaseProps} from '../types';
-import { MDBTypography } from 'mdbreact'
+import React, {FC,ReactNode,useMemo} from 'react';
+import {VarTypes,TagTypes,HeadingProps} from '../types';
+import {MDBTypography} from 'mdbreact'
 
-export interface HeadingProps extends BaseProps {
-    abbr   ?:boolean,
-    active ?:boolean,
-    variant?:''|'responsive',
-    level  ?:number
-}
-type TagTypes = 'h1'|'h2'|'h3'|'h4'|'h5'
-type VarTypes = TagTypes|'h1-responsive'|'h2-responsive'|'h3-responsive'|'h4-responsive'|'h5-responsive'
 export const Heading:FC<HeadingProps> = ({
-        level=1, variant='', abbr=false, active=true,
+        level=1, variant='responsive', //error if none
         children, className='', color='', style={},
     }) => {
-    const state = {abbr, active, className, color, style}
-    return <MDBTypography {...state}
-                tag={`h${level}` as TagTypes}
-                variant={`h${level}${variant?'-'+variant:''}` as VarTypes}>
-                {children}</MDBTypography>;
+    const tag = useMemo(()=>`h${level}`                         as TagTypes,[level])
+    const vari =useMemo(()=>`h${level}${variant?'-'+variant:''}`as VarTypes,[level,variant])
+    return (
+        <MDBTypography
+        {...{tag, variant:vari,abbr:"false",
+            children:children||null,
+            className, color, style}}/>
+    )
 };
-
 
 /*
 Heading.propTypes = {

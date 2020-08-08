@@ -1,4 +1,7 @@
-//https://mdbootstrap.com/docs/react/components/dropdowns/
+/***
+  * REF
+  * https://mdbootstrap.com/docs/react/components/dropdowns/
+***/
 import React, {FC} from 'react';
 import {BaseProps} from '../../types';
 import {getarr as getArray,getText,getLink} from '../../utils'
@@ -15,10 +18,10 @@ export const Drop:FC<BaseProps> = ({
                 {getText(getArray(children)[0]?.props?.children)}
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-            {getArray(children).filter((c,i)=>i>0).map((c,i)=>
+            {getArray(children).filter((_,i:number)=>i>0).map((c,i)=>
                 <MDBDropdownItem key={i}
-                    onClick={()=>{window.location.href=getLink(c.props)}}>
-                    {getText(c.props)||c.props.children}</MDBDropdownItem>
+                    onClick={()=>{window.location.href=getLink(c.props?.children)}}>
+                    {getText(c.props?.children)||c.props?.children}</MDBDropdownItem>
             )}
             </MDBDropdownMenu>
         </MDBDropdown>

@@ -19,7 +19,6 @@ export const Grid:FC<any> = ({child=null}) => {
             )
         return c;
     }
-    console.log(child)
     return renderChild(child)
 };
 
