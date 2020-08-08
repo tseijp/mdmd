@@ -5,15 +5,16 @@ import {ImageProps} from '../../types';
 //import classNames from 'classnames';
 import {MDBView, MDBMask} from 'mdbreact';
 
-export const ImageView:FC<ImageProps> = ({src='',alt='',active=false, color='',className='',style={}}) => {
-    const styles = {alt:{fontSize:"25px"},}
+export const ImageView:FC<ImageProps> = ({
+    src='',alt='',active=false, color='',className='',style={position:"absolute"}
+}) => {
     className = `img-fluid ${className||''}`
     color = `${color}-text` //TODO
     return (
         <MDBView hover>
             <img alt="" {...{src,alt,active,className,style}}/>
             <MDBMask className="flex-center" overlay="white-light">
-                <p className="black-text" style={styles.alt}>{alt}</p>
+                <p className="black-text" style={{fontSize:"1em"}}>{alt}</p>
             </MDBMask>
         </MDBView>
     )

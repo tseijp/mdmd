@@ -8,7 +8,7 @@ import * as Renderers from './components';
 const renderersKey  = Object.keys(Renderers)
 export const Mdmd:FC<MdmdProps> = ({
         md=null, path=null, source='',
-        children, className='', color='',style={},...props
+        children, className='', color='elegant-color',style={},...props
     }) => {
     /******************** for props.source ********************/
     const [nowSource, setSource] = useState(source);

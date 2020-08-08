@@ -9,19 +9,10 @@ import {
 
 //import Mdmd from "./mdmd"; //productions
 import Mdmd from "../src"; //develop&test
-
-import About     from './pages/About.md';
-import Basic     from './pages/Basic.md';
-import Component from './pages/Component.md';
-import Container from './pages/Container.md';
-import Content   from './pages/Content.md';
-import Grid      from './pages/Grid.md';
-import Help      from './pages/Help.md';
-import How       from './pages/How.md';
-
-const DOCSPAGES = {About,Basic,Component,Container,Content,Grid,Help,How}
-const INITIALDOCSPAGE = "Grid"
+import * as Pages from './pages';
+const INITIALDOCSPAGE = "Grid";
 const SEPARATORWIDTH = 15;
+
 /*---------- context ----------*/
 
 const Root = (props) => { //customize node for Mdmd.props.renderers
@@ -44,7 +35,7 @@ const Modal = (props) => {
     const {setColor,filename,setFilename,isModalOpen,setIsModalOpen,} = props;
     const colors = ["danger","warning","success","info","default","primary","secondary",
                     "elegant","stylish","unique","special",];
-    const pages  = Object.keys(DOCSPAGES);//["About", "Basic", "Component"];
+    const pages  = Object.keys(Pages);//["About", "Basic", "Component"];
     return (
         <MDBModal isOpen={isModalOpen} toggle={()=>setIsModalOpen(false)} fullHeight position="right">
             <MDBModalHeader toggle={()=>setIsModalOpen(false)}>MDMD Setting</MDBModalHeader>
@@ -64,17 +55,17 @@ const Modal = (props) => {
         </MDBModal>
     )
 }
-const Demo = (props) => {
+export const Demo = (props) => {
     /******************** for mdmd props ********************/
     const leftRef = createRef();
     const aceEditorRef = useRef(null);
     const separatorXRef = useRef(null);
     const [color, setColor] = useState(props.color);
+    const [filename, setFilename] = useState(INITIALDOCSPAGE);
     const [isModalOpen, setIsModalOpen] = useState(false);
     /******************** for docs pages ********************/
-    const [filename, setFilename] = useState(INITIALDOCSPAGE);
     useEffect(()=>{
-        fetch(DOCSPAGES[filename]).then(res=>res.text()).then(res=>{
+        fetch(Pages[filename]).then(res=>res.text()).then(res=>{
             setAceValue(res);
             setSource(res);
         });
