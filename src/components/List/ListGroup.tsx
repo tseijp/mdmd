@@ -3,22 +3,10 @@ import {BaseProps} from '../../types';
 import {MDBListGroup} from 'mdbreact';
 
 export const ListGroup:FC<BaseProps> = ({
-        children, className='', color='', style={}
-    }) => {;
+        children, className='', color='elegant', style={}
+    }) => {
     return useMemo(()=>
-        <MDBListGroup {...{children, className, style:{margin:"auto auto",...style}}} />
-    , [children, className, style])
+        <MDBListGroup {...{children, className, color, style:{margin:"auto auto",...style}}} color="light"/>
+    , [children, className, color, style])
 
 };
-
-/*
-List.propTypes = {
-    active: PropTypes.bool,
-};
-
-List.defaultProps = {
-  active: false,
-  className: '',
-};
-export default List;
-*/

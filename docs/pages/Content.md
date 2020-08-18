@@ -3,10 +3,7 @@
 
 ***
 
->>> __Link__  
->>> `<a></a>`  
->  
->>>__Usage__  
+>>> __Link Usage__  
 >>>```  
 >>>[Link for awesome](https://tsei.jp)
 >>>```  
@@ -16,15 +13,7 @@
 
 ***
 
->>>__Button__  
->>># H1 : [*Badge*](#1)
->>>## H2 : [*Badge*](#2)
->>>### H3 : [*Badge*](#3)
->>>#### H4 : [*Badge*](#4)
->>>##### H5 : [*Badge*](#5)
->>>###### H6 : [*Badge*](#6)
->  
->>>__Usage__
+>>>__Button Usage__
 >>>```
 >>>[_Default Badge_]()
 >>>  
@@ -65,8 +54,8 @@
 >>> The alt tag is stored in MDBReact's icon props and rendered|  
 >>> You can be found  icon list [_here_](https://mdbootstrap.com/docs/react/content/icons-list/)|  
 >
->>>> __Examples__  
->>>> ![Nene](https://res.cloudinary.com/dpimrj9cp/image/upload/v1586172431/IMG_4674.jpg)   
+>>> __Examples__  
+>>> ![Nene](https://res.cloudinary.com/dpimrj9cp/image/upload/v1586172431/IMG_4674.jpg)
 
 
 ***

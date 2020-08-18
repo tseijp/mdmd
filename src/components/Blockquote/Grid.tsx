@@ -1,67 +1,51 @@
-import React, {FC} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {MDBCol, MDBRow} from 'mdbreact';
 //import {BaseProps} from '../../types'
 
-export const Grid:FC<any> = ({child=null}) => {
-    const isBlock =(c:any)=> !c?.key || (c?.key?.match('blockquote') || c?.key?.match('paragraph'))
-    const renderChild =(c:any)=> {
-        if (c && c instanceof Array && c.every(c=>isBlock(c)) )
-            return (
-                <MDBRow>
-                {c.map((c,i)=>
-                    <MDBCol key={i}>
+export const Grid:FC<any> = ({grid=null}) => {
+    const isBlock =(c:any)=> 0
+         || c instanceof Array
+         || !!c?.key?.match('blockquote')
+         || !!c?.key?.match('paragraph')
+    const renderGrid =useCallback((arr:any)=>
+        (arr instanceof Array && arr.every(c=>isBlock(c)) )
+          ? <MDBRow>
+                {arr.map((c,i)=>
+                    <MDBCol key={`${i}-${c.length}`}>
                     {(c instanceof Array)
-                        ?renderChild(c)
-                        :c
+                        ? renderGrid(c)
+                        : c
                     }</MDBCol>
                 )}
                 </MDBRow>
-            )
-        return c;
-    }
-    return renderChild(child)
+          : arr, [])
+    return useMemo(()=>renderGrid(grid), [renderGrid, grid])
 };
-
-/*
-Grid.propTypes = {
-    className: PropTypes.string,
-    color    : PropTypes.string,
-    style    : PropTypes.object,
-};
-Grid.defaultProps = {
-};
-*/
-
-/*props
-  - cren : [blockquote, ]
-
->if depth = 0 (no \n)
-props.cren
-  - c   (key=text)
-    .props.cren
-      - c (key=None)
-
->if depth = 0 (include \n)
-
->>if depth = 1 (include \n)
-props.cren
-  - c (key=blockquote)
-    .props.cren
-      - c (key=paragraph)
-        .props.cren
-          - c (key=text)
-          - c (key=text)...
-
->>if depth=1
->  //bind depth=0
->>?
-props.cren
-  - c (key=blockquote)
-    .prosp.cren
-      - c (key=paragraph)
-      - c
-        .props.cren
-          - c (key=text)
+/* props- children : [blockquote, ...]
+> if depth = 0 (no \n)
+    props.children
+      - c   (key=text)
+        .props.children
+          - c (key=None)
+> if depth = 0 (include \n)
+> if depth = 1 (include \n)
+    props.children
+      - c (key=blockquote)
+        .props.children
+          - c (key=paragraph)
+            .props.children
+              - c (key=text)
+              - c (key=text)...
+>if depth=1
+    //bind depth=0
+>?
+    props.children
+      - c (key=blockquote)
+        .prosp.children
+          - c (key=paragraph)
           - c
-          - c ...
+            .props.children
+              - c (key=text)
+              - c
+              - c ...
 */

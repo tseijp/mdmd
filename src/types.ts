@@ -69,6 +69,7 @@ export interface HeadingProps extends BaseProps {
     active ?:boolean,
     variant?:''|'responsive',
     level  ?:number
+    responsive?:boolean
 }
 export interface TablesProps extends BaseProps {
     columns ?: any[],

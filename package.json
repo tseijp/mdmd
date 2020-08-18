@@ -1,11 +1,11 @@
 {
   "name": "@tsei/mdmd",
   "homepage": "/",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "module": "index.js",
   "types": "index.d.ts",
   "main": "index.cjs.js",
-  "author" : "tsei",
+  "author": "tsei",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
@@ -71,6 +71,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "rollup": "^2.22.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "use-grid": "^0.7.0"
   }
 }

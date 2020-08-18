@@ -1,9 +1,8 @@
 //https://mdbootstrap.com/docs/react/navigation/footer/
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask } from
 "mdbreact";
-const Mdmd = (props) => {
+export const Carousel = (props) => {
     const {children,activeItem,showControls,showIndicators,getArray} = props;
     const className = "z-depth-1 "+props.className;
     const getSrc=(props)=>getArray(props.children).map(c=>c.key&&c.key.match('image')?c.props.src:'')[0]||''
@@ -30,14 +29,3 @@ const Mdmd = (props) => {
         </MDBCarousel>
     )
 };
-
-Mdmd.propTypes = {
-    active: PropTypes.bool,
-};
-
-Mdmd.defaultProps = {
-    activeItem:1,
-    showControls:true,
-    showIndicators:true,
-};
-export default Mdmd;

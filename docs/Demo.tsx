@@ -1,4 +1,4 @@
-import React, {Fragment, useRef, createRef, useState, useEffect} from 'react';
+import React, {Fragment,useRef,createRef,useState,useEffect,useCallback,useMemo} from 'react';
 import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
 import "ace-builds/src-noconflict/mode-markdown";
@@ -89,19 +89,19 @@ export const Demo = (props) => {
         if (!leftWidth)
             return setLeftWidth(leftRef.current.clientWidth);
         leftRef.current.style.width = `${leftWidth}px`;
-    }, [leftWidth,leftRef]);
-    useEffect(()=>{
-        setTimeout(()=>aceEditorRef.current && aceEditorRef.current.editor.resize(),1000)
-    }, [leftWidth])
-    const separatorMouseMove =e=> {
+        setTimeout(()=>
+            aceEditorRef.current && aceEditorRef.current.editor.resize()
+        ,1000)
+    }, [leftWidth, leftRef]);
+    const separatorMouseMove =useCallback(e=>{
         if (!separatorXRef.current)
             return;
         const newleftWidth = leftWidth+e.clientX-separatorXRef.current;
         separatorXRef.current = e.clientX;
         setLeftWidth(newleftWidth);
-    }
+    }, [leftWidth])
     /******************** styles ********************/
-    const styles = {
+    const styles = useMemo<{[key:string]:React.CSSProperties}>(()=>({
         SplitPane :{display:"table",flexDirection:"column", width:"100%"},
         Separator :{display:"table-cell", backgroundColor:"#E8E8E8",
                     width:SEPARATORWIDTH+"px",transition:"0.75s"},
@@ -115,10 +115,10 @@ export const Demo = (props) => {
                 ...((leftWidth< SEPARATORWIDTH*2)?{transform:"rotate(-180deg)"}:{})},
         btnModal:{padding:"15px 43px",right:"50px",...(isModalOpen?{}:{transform:"rotate(90deg)"})},
         btnClose:{padding:"15px 40px",right:(isModalOpen?50:-50)+"px"},
-    };
+    }), [isModalOpen, leftWidth])
     /******************** peformance tuning ********************/
-    const stateMdmd = React.useMemo(()=>({color, renderers:{root:Root}}), [color]);
-    const stateAce = React.useMemo(()=>({
+    const stateMdmd = useMemo(()=>({color, renderers:{root:Root}}), [color]);
+    const stateAce = useMemo(()=>({
         ref:aceEditorRef, value:aceValue,onChange:(value)=>{setAceValue(value);setIsChanged(true)},
         name:"UNIQUE_ID_OF_DIV", mode:"markdown", theme:"github",
         width:"100%",  height:"100%", editorProps:{ $blockScrolling: false },

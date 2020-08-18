@@ -1,6 +1,7 @@
 import {ReactNode as RN, Children} from 'react'
 
-// FOR TABLE
+// ************************* 🎰 FOR TABLE 🎰 ************************* //
+// ************************* **************** ************************* //
 export const getarr=(arr:any)=>arr?arr instanceof Array?arr:[arr]:[]
 export const gettrs=(els:any[])=>[].concat(...(els.map(el=>getarr(el?.props?.children)) as never[]));
 export const getths=(row:any  )=>getarr(row?.props?.children).map(el=>getarr(el?.props?.children));
@@ -9,9 +10,10 @@ export const getrow=(els:any[])=>Object.assign( {},...els.map((c,i)=>({[""+i]:c}
 export const getkey=(els:any[])=>[].concat(...els.map(el=>el)).map((v:any)=>v.key);
 export const getIsX=(els:any[],key:string)=>els.every(el=>el.label.every((c:any)=>getAnyCh(c.props,key).length) )
 
-// FOR LIST
-//grands:i want to know as g0 is btn? link? g0.child is ?
-//i want know g0 have 'link' child and g0 have 'strong' grandchild.
+// ************************* 📋 FOR LIST 📋 ************************* //
+// * grands : i want to know as g0 is btn? link? g0.child is ?
+// * i want know g0 have 'link' child and g0 have 'strong' grandchild.
+// ************************* ************** ************************* //
 type GetAnyCh<T=any> = (children:T, key:string) => T[]
 type GetAnyGr<T=any> = (children:T, k1:string, k2:string) => (T[])[]
 export const getAnyCh:GetAnyCh=(children,key)=>getarr(children).filter(c=>c.key&&c.key.match(key))//[g0,..]or[]
@@ -19,13 +21,14 @@ export const getAnyGr:GetAnyGr=(children,k,l)=>getAnyCh(children,k).map(c=>getAn
 export const getText=(children:any)=>getarr(children).map(c=>c.key&&c.key.match('link')?c.props.children:c)
 export const getLink=(children:any)=>getarr(children).map(c=>c.key&&c.key.match('link')?c.props.href:'#!').filter(n=>n)[0]||'#!'
 
-export const getChild = (children:RN, depth=0) : any => {
-    return Children.map(children, (child:any)=>child?.key&&child.key.match('blockquote')
-        ? getChild(child?.props?.children, depth+1)
-        : child
+// ************************* 🤏 FOR GRID 🤏 ************************* //
+// ************************* *************** ************************* //
+export const getGrid = (children:RN, depth=0) : any =>
+    getarr(children).map((child:any)=>
+        child?.key && !!child.key.match('blockquote') && !!child?.props?.children
+             ? getGrid(child.props.children, depth+1)
+             : child
     )
-}
-
 export const getLevel = (children:RN) : number => {
     if (!children) return 0
     const keys = Children.toArray(children).map((c:any)=>c?.key).filter((k:any)=>k) as string[]

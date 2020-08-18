@@ -6,17 +6,3 @@ export const Root:FC<BaseProps> = ({
 }) => {
     return <MDBContainer style={style} {...props}>{children}</MDBContainer>;
 };
-
-/*
-Root.propTypes = {
-    className: PropTypes.string,
-    color    : PropTypes.string,
-    style    : PropTypes.object,
-};
-
-Root.defaultProps = {
-    className: '',
-    coor :'',
-    style:{},
-};
-*/

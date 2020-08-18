@@ -44,19 +44,19 @@ With the attractive plugins, you can use Syntax Highlight and Mathjax.   |
 >  
 >>>__Usage__  
 >>>```
->>> ___Bolder weight text___  
->>> __Bold text__  
->>> _Italic text._  
->>> Normal weight text.  
->>> ~~Deleted Text~~
+>>> ___Bolder weight___  
+>>> __Bold__  
+>>> _Italic_  
+>>> Normal weight.  
+>>> ~~Deleted~~
 >>>```
 >  
 >>>__Examples__  
->>> ___Bolder weight text___  
->>> __Bold text__  
->>> _Italic text._  
->>> Normal weight text.  
->>> ~~Deleted Text~~
+>>> ___Bolder weight___  
+>>> __Bold__  
+>>> _Italic._  
+>>> Normal weight.  
+>>> ~~Deleted~~
 
 ***  
 

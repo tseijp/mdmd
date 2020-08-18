@@ -32,25 +32,19 @@ const RootCustom = (props:any) => {
         </main>
     )
 }
-export const App =()=> {
-    const state = useMemo(()=>({
-        renderers : {root: RootCustom},
-        styleRoot : {padding:"5000px"},
-        color     : "default-color"   ,
-    }), [])
-    return (
-        <BrowserRouter>
-            <Switch>
-                {Object.keys(Pages).map((key)=>
-                    <Route key={key} exact path={'/mdmd/'+key}>
-                        <Mdmd {...state} md={Pages[key]} />
-                    </Route>
-                )}
-                <Route component={Demo}/>
-            </Switch>
-        </BrowserRouter>
-    );
-};
-
+export const App =()=> (
+    <BrowserRouter>
+        <Switch>
+            { Object.keys(Pages).map((key)=>
+                <Route key={key} exact path={'/mdmd/'+key}>
+                    <Mdmd md={Pages[key]}
+                        styleRoot={{padding:"500px"}}
+                        renderers={{root: RootCustom}} />
+                </Route>
+            ) }
+            <Route component={Demo}/>
+        </Switch>
+    </BrowserRouter>
+);
 ReactDOM.render(<App />, document.getElementById('root'));
 serviceWorker.unregister();

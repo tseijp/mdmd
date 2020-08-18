@@ -6,14 +6,3 @@ export const Paragraph:FC<BaseProps> = ({
     }) => {
     return <div {...{className,color,style}}>{children}</div>;
 };
-/*
-Paragraph.propTypes = {
-    className: PropTypes.string,
-    color    : PropTypes.string,
-    style    : PropTypes.object,
-};
-
-Paragraph.defaultProps = {
-  className: '',
-};
-*/

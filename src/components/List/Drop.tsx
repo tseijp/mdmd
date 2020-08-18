@@ -27,15 +27,3 @@ export const Drop:FC<BaseProps> = ({
         </MDBDropdown>
     )
 };
-
-/*
-Mdmd.propTypes = {
-    active: PropTypes.bool,
-};
-
-Mdmd.defaultProps = {
-  active: false,
-  className: '',
-};
-export default Mdmd;
-*/

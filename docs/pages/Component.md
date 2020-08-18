@@ -63,7 +63,9 @@ How to set up the buttons and Images, Please click [_here_](/mdmd/content)|
 ***  
 >>> __Modal Usage__
 >>>```
->>>
+>>>[~~Modal Example~~]()|  
+>>>-:|  
+>>>~~|  
 >>>```
 >
 >>>[~~Modal Example~~]()|  

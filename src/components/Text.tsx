@@ -7,17 +7,3 @@ export const Text:FC<BaseProps> = ({
     className = (color?`${color}-text `:'') + className
     return <span {...{children, className, color, style}} />
 };
-
-/*
-Mdmd.propTypes = {
-    className: PropTypes.string,
-    color: PropTypes.string,
-    style: PropTypes.object,
-};
-
-Mdmd.defaultProps = {
-    className: '',
-    color:'',
-    style:{},
-};
-*/

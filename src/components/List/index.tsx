@@ -1,21 +1,22 @@
-import React, {FC} from 'react';
+import React, {FC,useMemo} from 'react';
 import {BaseProps} from '../../types';
 import {getarr, getAnyCh, getAnyGr} from '../../utils';
 import {ListGroup} from './ListGroup';
 import {Navi} from './Navi';
 import {Foot} from './Foot';
 import {Drop} from './Drop';
-//import Carousel from './Carousel';
-//import PropTypes from 'prop-types';
 export const List:FC<BaseProps> = ({
-        children, className='', color='', style={}
+        children, className='', color='elegant', style={}
     }) => {
+    const state = useMemo(()=>({
+        children,className,color,style
+    }),[children,className,color,style])
     if( getarr( children ).every((c:any)=>getAnyCh(c.props?.children,'link').length ) ){
         if ( getarr( children ).every(c=>getAnyGr(c.props?.children, 'link', 'strong').length) )
-            return <Foot {...{children,className,color,style}}/>
+            return <Foot {...state}/>
         if ( getarr( children ).every(c=>getAnyGr(c.props?.children, 'link', 'emphasis').length) )
-            return <Navi {...{children,className,color,style}}/>
-        return <Drop {...{children,className,color,style}}/>
+            return <Navi {...state}/>
+        return <Drop {...state}/>
     }
     return <ListGroup>{children}</ListGroup>
 /***
@@ -34,26 +35,6 @@ export {
     Foot,
     Drop,
 };
-/*
-Mdmd.propTypes = {
-    className: PropTypes.string,
-    color    : PropTypes.string,
-    style    : PropTypes.object,
-};
-
-Mdmd.defaultProps = {
-    className: '',
-    color    : '',
-    style    : {},
-}
-export default Mdmd;
-export {
-    List,
-    Navi,
-    Foot,
-    Drop,
-};
-*/
 /*props
 props.depth  : 0
 props.ordered: false

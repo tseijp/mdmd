@@ -1,23 +1,10 @@
 import React, {FC} from 'react';
 import {BaseProps} from '../types';
-//import Radium from 'radium';
-//import PropTypes from 'prop-types';
-//import classNames from 'classnames';
 import {MDBBadge} from 'mdbreact';
-export const Delete:FC<BaseProps> = ({children, ...props}) => {
-    return <MDBBadge {...props}>×{children}</MDBBadge>;
+export const Delete:FC<BaseProps> = ({
+        children, className="", color="", style={}
+    }) => {
+    const colors = ["default","primary","success","info","warning","danger","light","dark"]
+    color = color in colors ? color :"danger"
+    return <MDBBadge {...{className,color,style}}>×{children}</MDBBadge>;
 };
-/*
-Delete.propTypes = {
-    className: PropTypes.string,
-    color    : PropTypes.string,
-    style    : PropTypes.object,
-};
-
-Delete.defaultProps = {
-//  active: false,
-  className: '',
-  color:'danger',
-  style:{},
-};
-*/

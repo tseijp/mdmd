@@ -26,16 +26,3 @@ export const Foot:FC<BaseProps> = ({
         </MDBFooter>
     )
 };
-
-/*
-Mdmd.propTypes = {
-    active: PropTypes.bool,
-};
-
-Mdmd.defaultProps = {
-  active: false,
-  className:'',
-  color:"default-color",
-};
-export default Mdmd;
-*/
