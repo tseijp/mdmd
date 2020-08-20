@@ -6,6 +6,8 @@ export const ListItem:FC<BaseProps> = ({
 }) => {
     type Colors = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | undefined
     const colors= ["primary","secondary","success","danger","warning","info","light","dark"]
-    const color = props.color && props.color in colors ? props.color as Colors: "light"
+    const color = props.color && colors.some(c=>c===props.color)
+        ? props.color as Colors
+        : "light"
     return <MDBListGroupItem {...{children, className, color, style}} />
 };

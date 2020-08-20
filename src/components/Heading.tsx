@@ -32,9 +32,9 @@ export const Heading:FC<HeadingProps> = ({
     /*
     const tag = useMemo(()=>`h${level}` as TagTypes,[level])
     const variant = useMemo(()=>"responsive" as VarTypes,[])
-    return <MDBTypography
-        {...{tag, variant, abbr:"true", //error if none
-            children:<abbr>children</abbr>,
-            className, color, style}}/>
+    return <MDBTypography {...{
+        tag, variant, abbr:"true", //error if none
+        children, // warning
+        className, color, style}}/>
     */
 };

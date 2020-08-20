@@ -1,21 +1,20 @@
-import React, {Fragment,useRef,createRef,useState,useEffect,useCallback,useMemo} from 'react';
+import React, {Fragment,useRef,useState,useEffect,useCallback,useMemo} from 'react';
 import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
-import "ace-builds/src-noconflict/mode-markdown";
-import "ace-builds/src-noconflict/theme-github";
 import {
     MDBContainer, MDBFreeBird, MDBEdgeHeader, MDBIcon, MDBBtn,
     MDBModal, MDBModalBody, MDBModalHeader, /*MDBModalFooter*/} from "mdbreact";
-
-//import Mdmd from "./mdmd"; //productions
-import Mdmd from "../src"; //develop&test
+import {useGrid} from 'use-grid'
+import {Mdmd, buttonColor} from "../src"; //develop&test
 import * as Pages from './pages';
+import "ace-builds/src-noconflict/mode-markdown";
+import "ace-builds/src-noconflict/theme-github";
 const INITIALDOCSPAGE = "Grid";
-const SEPARATORWIDTH = 15;
-
+const pagesKey  = Object.keys(Pages);
+const WIDTH = 15;
 /*---------- context ----------*/
 
-const Root = (props) => { //customize node for Mdmd.props.renderers
+const Root = (props:any) => { //customize node for Mdmd.props.renderers
     const style = {
         backgroundImage:"url('https://mdbootstrap.com/wp-content/uploads/2016/12/big-bundle1.jpg')",
         backgroundColor:"#123456", backgroundPosition:"center center", backgroundSize:"cover",
@@ -31,118 +30,124 @@ const Root = (props) => { //customize node for Mdmd.props.renderers
         </main>
     )
 }
-const Modal = (props) => {
-    const {setColor,filename,setFilename,isModalOpen,setIsModalOpen,} = props;
-    const colors = ["danger","warning","success","info","default","primary","secondary",
-                    "elegant","stylish","unique","special",];
-    const pages  = Object.keys(Pages);//["About", "Basic", "Component"];
+const Modal = (props:any) => {
+    const {setColor,page,setPage,isOpen,setIsOpen,} = props;
+    const colors = ["danger","warning","success","info","default","primary",
+                    "secondary","elegant","stylish","unique","special",];
     return (
-        <MDBModal isOpen={isModalOpen} toggle={()=>setIsModalOpen(false)} fullHeight position="right">
-            <MDBModalHeader toggle={()=>setIsModalOpen(false)}>MDMD Setting</MDBModalHeader>
+        <MDBModal isOpen={isOpen} toggle={()=>setIsOpen(false)} fullHeight position="right">
+            <MDBModalHeader toggle={()=>setIsOpen(false)}>MDMD Setting</MDBModalHeader>
             <MDBModalBody>
                     <h3>Color</h3>
                     <Fragment>
                         {colors.map((color,i)=>
-                            <MDBBtn key={i} color={color} onClick={()=>setColor(color+"-color")}>{color}</MDBBtn>)}
+                            <MDBBtn key={i} color={color as buttonColor}
+                            onClick={()=>setColor(color+"-color")}>{color}</MDBBtn>)}
                     </Fragment>
                     <h3>Pages</h3>
                     <Fragment>
-                        {pages.map((page,i)=>
-                            <MDBBtn key={i} color={filename===page?props.color.replace("-color",""):null}
-                                onClick={()=>setFilename(page)}>{page}</MDBBtn>)}
+                        {pagesKey.map((p,i)=>
+                            <MDBBtn key={i} color={page===p?props.color.replace("-color",""):null}
+                                onClick={()=>setPage(p)}>{p}</MDBBtn>)}
                     </Fragment>
             </MDBModalBody>
         </MDBModal>
     )
 }
-export const Demo = (props) => {
+export const Demo = (props:any) => {
     /******************** for mdmd props ********************/
-    const leftRef = createRef();
+    const leftRef = useRef<React.LegacyRef<HTMLDivElement>>();//createRef
     const aceEditorRef = useRef(null);
     const separatorXRef = useRef(null);
+    const [fontSize] = useGrid({xs:50, md:50, lg:75})
+    const [page, setPage] = useState(INITIALDOCSPAGE);
     const [color, setColor] = useState(props.color);
-    const [filename, setFilename] = useState(INITIALDOCSPAGE);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     /******************** for docs pages ********************/
     useEffect(()=>{
-        fetch(Pages[filename]).then(res=>res.text()).then(res=>{
+        fetch(Pages[page]).then(res=>res.text()).then(res=>{
             setAceValue(res);
             setSource(res);
         });
-    }, [filename])
+    }, [page])
     /******************** for should update ********************/
     const [source, setSource] = useState(props.source);//for Mdmd props.source
     const [aceValue, setAceValue] = useState(props.source);
     const [isChanged, setIsChanged] = useState(false);
     useEffect(()=>{
         const interval = setInterval(()=>{
-            if(isChanged){
+            if (isChanged) {
                 setIsChanged(false)
                 setSource(aceValue)
             }
         },1000);
-        return () => clearInterval(interval);
+        return ()=>clearInterval(interval);
     })
     /******************** for split window ********************/
-    const [leftWidth, setLeftWidth] = useState(SEPARATORWIDTH);
+    const [width, setWidth] = useState(WIDTH);
     useEffect(() => {
-        if (!leftWidth)
-            return setLeftWidth(leftRef.current.clientWidth);
-        leftRef.current.style.width = `${leftWidth}px`;
+        if (!width)
+            return setWidth(leftRef.current.clientWidth);
+        leftRef.current.style.width = `${width}px`;
         setTimeout(()=>
             aceEditorRef.current && aceEditorRef.current.editor.resize()
         ,1000)
-    }, [leftWidth, leftRef]);
+    }, [width, leftRef]);
     const separatorMouseMove =useCallback(e=>{
         if (!separatorXRef.current)
             return;
-        const newleftWidth = leftWidth+e.clientX-separatorXRef.current;
+        const newwidth = width+e.clientX-separatorXRef.current;
         separatorXRef.current = e.clientX;
-        setLeftWidth(newleftWidth);
-    }, [leftWidth])
+        setWidth(newwidth);
+    }, [width] )
     /******************** styles ********************/
-    const styles = useMemo<{[key:string]:React.CSSProperties}>(()=>({
-        SplitPane :{display:"table",flexDirection:"column", width:"100%"},
-        Separator :{display:"table-cell", backgroundColor:"#E8E8E8",
-                    width:SEPARATORWIDTH+"px",transition:"0.75s"},
-        SplitLeft :{overflow:"hidden",display:"table-cell",transition:"0.5s"},
-        SplitRight:{overflow:"hidden",display:"table-cell",transition:"0.5s",width:"auto",},
-        Container :{position:"fixed", padding:"0 0 0 0",transition:"0.75s",
-                    width:leftWidth+"px",height:"100%",},
-        btn  : {fontSize:"50px", borderRadius:"100px",
-                position:"fixed",transition:"0.75s", bottom:"50px",},
-        btnWidth:{padding:"15px 40px",left:leftWidth+(leftWidth< SEPARATORWIDTH*2?50:-150)+"px",
-                ...((leftWidth< SEPARATORWIDTH*2)?{transform:"rotate(-180deg)"}:{})},
-        btnModal:{padding:"15px 43px",right:"50px",...(isModalOpen?{}:{transform:"rotate(90deg)"})},
-        btnClose:{padding:"15px 40px",right:(isModalOpen?50:-50)+"px"},
-    }), [isModalOpen, leftWidth])
+    const styles = useMemo<React.CSSProperties[]>(() => ([
+      { width:fontSize,height:fontSize,bottom:fontSize/4,borderRadius:fontSize,
+        transition:"0.75s",position:"fixed",padding:0,fontSize },
+      { transform:`rotate(${width<WIDTH*2?"-18":""}0deg)`,left:width+fontSize*(width<WIDTH*2?1/4:-2) },
+      { transform:`rotate(${isOpen?"90":"0"}deg)`,right:fontSize/4 },
+    ]),[isOpen, width, fontSize])
+    const iconStyle = useMemo(()=>({
+        position:"absolute",textAlign:"center",top:0,bottom:0,left:0,right:0
+    }), [])
+    const sepaStyle = useMemo(()=>({
+        transition:"0.75s",display:"table-cell",backgroundColor:"#E8E8E8",width:WIDTH+"px"
+    }), [])
     /******************** peformance tuning ********************/
     const stateMdmd = useMemo(()=>({color, renderers:{root:Root}}), [color]);
     const stateAce = useMemo(()=>({
-        ref:aceEditorRef, value:aceValue,onChange:(value)=>{setAceValue(value);setIsChanged(true)},
-        name:"UNIQUE_ID_OF_DIV", mode:"markdown", theme:"github",
-        width:"100%",  height:"100%", editorProps:{ $blockScrolling: false },
-    }), [aceValue]);
+        value:aceValue,onChange:(value:any)=>{setAceValue(value);setIsChanged(true)},
+        width:"100%",ref:aceEditorRef,editorProps:{$blockScrolling:false},
+        height:"100%",name:"UNIQUE_ID_OF_DIV",mode:"markdown",theme:"github",
+    }),[aceValue]);
+    const onMouseDown = useCallback(e=>{separatorXRef.current=e.clientX},[])
+    const onMouseMove = useCallback(e=>separatorMouseMove(e), [separatorMouseMove])
+    const onMouseUp   = useCallback(()=>{separatorXRef.current=null}, [])
     /******************** render ********************/
     return (
-        <div style={styles.SplitPane}
-            onMouseMove={e=>separatorMouseMove(e)}
-            onMouseUp  ={e=>separatorXRef.current = null}>
-            <div ref={leftRef} style={styles.SplitLeft}>
-                <MDBContainer style={styles.Container}>
-                    <AceEditor {...stateAce}/>
+        <div {...{onMouseMove,onMouseUp}} style={{display:"table",width:"100%",flexDirection:"column"}}>
+            <div ref={leftRef} style={{transition:".5s",display:"table-cell",overflow:"hidden"}}>
+                <MDBContainer  style={{transition:".75s",position:"fixed",padding:0,width,height:"100%"}}>
+                    {useMemo(()=><AceEditor {...stateAce}/>,[stateAce])}
                 </MDBContainer>
             </div>
-            <div style={styles.Separator}  onMouseDown={e=>{separatorXRef.current=e.clientX}}/>
-            <div style={styles.SplitRight} onMouseDown={e=>{separatorXRef.current=e.clientX}}>
+            {useMemo(()=><>
+            <div {...{onMouseDown}} style={sepaStyle}/>
+            <div {...{onMouseDown}} style={{width:"auto",overflow:"hidden"}}>
                 <Mdmd source={source} {...stateMdmd}/>
             </div>
-            <MDBBtn style={{...styles.btn,...styles.btnWidth}} color={color.replace('-color','')}
-                onClick={()=>{setLeftWidth(leftWidth<SEPARATORWIDTH*2?500:SEPARATORWIDTH)}}>
-                <MDBIcon icon="angle-left" /></MDBBtn>
-            <MDBBtn style={{...styles.btn,...styles.btnModal}} color={color.replace('-color','')}
-                onClick={()=>setIsModalOpen(!isModalOpen)}><MDBIcon icon="ellipsis-v" /></MDBBtn>
-            <Modal {...{color,setColor,filename,setFilename,isModalOpen,setIsModalOpen,}}/>
+            </>,[onMouseDown,sepaStyle,source,stateMdmd])}
+            <MDBBtn style={{...styles[0],...styles[1]}}
+                color={color.replace('-color','')}
+                onClick={()=>setWidth(width<WIDTH*2?window.innerWidth/3:WIDTH)}>
+                <MDBIcon icon="angle-left" style={iconStyle}/></MDBBtn>
+            <MDBBtn style={{...styles[0],...styles[2]}}
+                color={color.replace('-color','')}
+                onClick={()=>setIsOpen(!isOpen)}>
+                <MDBIcon icon="ellipsis-v" style={iconStyle}/></MDBBtn>
+            {useMemo(()=>
+                <Modal {...{color,setColor,page,setPage,isOpen,setIsOpen}}/>
+            ,[color,setColor,page,setPage,isOpen,setIsOpen])}
         </div>
     )
 }
@@ -160,7 +165,7 @@ Demo.propTypes = {
 Demo.defaultProps = {
     /*----------main----------*/
     path     :null,
-    color    :'elegant-color',
+    color    :'elegant',
     source   :''  ,
 };
 

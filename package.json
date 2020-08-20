@@ -1,7 +1,7 @@
 {
   "name": "@tsei/mdmd",
   "homepage": "/",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "module": "index.js",
   "types": "index.d.ts",
   "main": "index.cjs.js",
@@ -72,6 +72,6 @@
     "react-scripts": "3.4.1",
     "rollup": "^2.22.1",
     "typescript": "^3.7.5",
-    "use-grid": "^0.7.0"
+    "use-grid": "^0.8.0"
   }
 }
