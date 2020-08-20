@@ -9,11 +9,12 @@ import {BaseProps} from '../../types';
 import {getarr as getArray,getText,getLink} from '../../utils'
 import {MDBNavbar,MDBNavbarBrand,MDBNavbarNav,MDBNavItem,MDBNavLink,MDBNavbarToggler,MDBCollapse} from "mdbreact";
 export const Navi:FC<BaseProps> = ( {
-    className, color, style, ...props
+    className="", color="elegant", style={}, ...props
 }) => {
     const children = Children.toArray(props.children)
     const [isOpen, setIsOpen] = useState(false)
     const toggleCollapse = useCallback(()=>setIsOpen(p=>!p), [])
+    color = `${color}${color.match("-color")?"":"-color"}`
     return (
         <MDBNavbar {...{color,className,style}}
             expand="md" fixed="top" dark scrolling transparent>

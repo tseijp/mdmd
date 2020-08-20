@@ -5,6 +5,6 @@ export const Delete:FC<BaseProps> = ({
         children, className="", color="", style={}
     }) => {
     const colors = ["default","primary","success","info","warning","danger","light","dark"]
-    color = color in colors ? color :"danger"
+    color = colors.some(c=>c===color) ? color :"danger"
     return <MDBBadge {...{className,color,style}}>×{children}</MDBBadge>;
 };
