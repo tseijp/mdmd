@@ -35,7 +35,7 @@ const Modal = (props:any) => {
     const colors = ["danger","warning","success","info","default","primary",
                     "secondary","elegant","stylish","unique","special",];
     return (
-        <MDBModal isOpen={isOpen} toggle={()=>setIsOpen(false)} fullHeight position="right">
+        <MDBModal isOpen={isOpen} toggle={()=>setIsOpen(false)} fullHeight>
             <MDBModalHeader toggle={()=>setIsOpen(false)}>MDMD Setting</MDBModalHeader>
             <MDBModalBody>
                     <h3>Color</h3>
@@ -59,7 +59,7 @@ export const Demo = (props:any) => {
     const leftRef = useRef<React.LegacyRef<HTMLDivElement>>();//createRef
     const aceEditorRef = useRef(null);
     const separatorXRef = useRef(null);
-    const [fontSize] = useGrid({xs:50, md:50, lg:75})
+    const [fontSize] = useGrid({md:50, lg:75})
     const [page, setPage] = useState(INITIALDOCSPAGE);
     const [color, setColor] = useState(props.color);
     const [isOpen, setIsOpen] = useState(false);
@@ -131,23 +131,26 @@ export const Demo = (props:any) => {
                     {useMemo(()=><AceEditor {...stateAce}/>,[stateAce])}
                 </MDBContainer>
             </div>
-            {useMemo(()=><>
+            { useMemo(()=><>
             <div {...{onMouseDown}} style={sepaStyle}/>
             <div {...{onMouseDown}} style={{width:"auto",overflow:"hidden"}}>
                 <Mdmd source={source} {...stateMdmd}/>
             </div>
-            </>,[onMouseDown,sepaStyle,source,stateMdmd])}
+            {console.log("HI")}
+            </>,[onMouseDown,sepaStyle,source,stateMdmd]) }
             <MDBBtn style={{...styles[0],...styles[1]}}
                 color={color.replace('-color','')}
                 onClick={()=>setWidth(width<WIDTH*2?window.innerWidth/3:WIDTH)}>
-                <MDBIcon icon="angle-left" style={iconStyle}/></MDBBtn>
+                { useMemo(()=><MDBIcon icon="angle-left" style={iconStyle}/>,[iconStyle]) }
+            </MDBBtn>
             <MDBBtn style={{...styles[0],...styles[2]}}
                 color={color.replace('-color','')}
                 onClick={()=>setIsOpen(!isOpen)}>
-                <MDBIcon icon="ellipsis-v" style={iconStyle}/></MDBBtn>
-            {useMemo(()=>
+                { useMemo(()=><MDBIcon icon="ellipsis-v" style={iconStyle}/>,[iconStyle]) }
+            </MDBBtn>
+            { useMemo(()=>
                 <Modal {...{color,setColor,page,setPage,isOpen,setIsOpen}}/>
-            ,[color,setColor,page,setPage,isOpen,setIsOpen])}
+            ,[color,setColor,page,setPage,isOpen,setIsOpen]) }
         </div>
     )
 }
