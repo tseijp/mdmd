@@ -22,19 +22,23 @@ export const Pills:FC<TablesProps> =({
             <MDBNav style={{border:"none"}}
                 className={className+` mt-5 nav-${isPill?'pills':'tabs'}`}>
                 {cards && cards.map((card,i)=>
-                <MDBNavItem key={i}>
-                   <MDBNavLink link to="#" active={tab===(i)}
-                      onClick={(e:any)=>togglePills(e,i)} >
-                      {card.column.label.map((l:any)=>l.props.children)}
-                    </MDBNavLink>
-                </MDBNavItem>
+                <Fragment key={i}>
+                    <MDBNavItem>
+                       <MDBNavLink link to="#" active={tab===(i)}
+                          onClick={(e:any)=>togglePills(e,i)} >
+                          {card.column.label.map((l:any)=>l.props.children)}
+                        </MDBNavLink>
+                    </MDBNavItem>
+                </Fragment>
                 )}
             </MDBNav>
             <MDBTabContent activeItem={""+tab}>
                 {cards && cards.map((card,i)=>
-                <MDBTabPane key={i} tabId={i+""}>
-                    <p> {card.rows} </p>
-                </MDBTabPane>
+                <Fragment key={i}>
+                    <MDBTabPane tabId={i+""}>
+                        <p> {card.rows} </p>
+                    </MDBTabPane>
+                </Fragment>
                 )}
           </MDBTabContent>
         </Fragment>

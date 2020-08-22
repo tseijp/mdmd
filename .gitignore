@@ -15,7 +15,7 @@ index.js
 /coverage
 
 # production
-/build
+# /build # my changed
 
 # misc
 .DS_Store

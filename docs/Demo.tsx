@@ -35,7 +35,7 @@ const Modal = (props:any) => {
     const colors = ["danger","warning","success","info","default","primary",
                     "secondary","elegant","stylish","unique","special",];
     return (
-        <MDBModal isOpen={isOpen} toggle={()=>setIsOpen(false)} fullHeight>
+        <MDBModal isOpen={isOpen} toggle={()=>setIsOpen(false)} fullHeight position="right">
             <MDBModalHeader toggle={()=>setIsOpen(false)}>MDMD Setting</MDBModalHeader>
             <MDBModalBody>
                     <h3>Color</h3>
@@ -136,7 +136,6 @@ export const Demo = (props:any) => {
             <div {...{onMouseDown}} style={{width:"auto",overflow:"hidden"}}>
                 <Mdmd source={source} {...stateMdmd}/>
             </div>
-            {console.log("HI")}
             </>,[onMouseDown,sepaStyle,source,stateMdmd]) }
             <MDBBtn style={{...styles[0],...styles[1]}}
                 color={color.replace('-color','')}
