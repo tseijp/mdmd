@@ -29,14 +29,12 @@ export const getGrid = (children:RN, depth=0) : any =>
              ? getGrid(child.props.children, depth+1)
              : child
     )
-export const getLevel = (children:RN) : number => {
+export const getLevel = (children: RN) : number => {
     if (!children) return 0
     const keys = Children.toArray(children).map((c:any)=>c?.key).filter((k:any)=>k) as string[]
-//  const is_w= keys.every(key=>key.match('delete'))     //put by delete     ~~e.g.~~ //TODO
-    const is_1 = keys.every(key=>key.match('emphasis'))  //put by 1 underbar  _e.g._
-    const is_2 = keys.every(key=>key.match('strong'))    //put by 2 underbar __e.g.__
-    const is_3 = [].concat(...getarr(children).map(el=>  //put by 3 underbar___e.g.___
-        el.props.children instanceof Array?Children.map(el.props.children,e=>e.key):[]
-    )).every((key:string)=>key.match('emphasis'));
-    return is_3?3:is_2?2:is_1?1:0
+    return keys.every(key=>key.match('strong')) ? 2       //put by 2 underbar __e.g.__
+            : keys.every(key=>key.match('emphasis')) ? 1 //put by 1 underbar __e.g.__
+                : keys.every(key=>key.match('delete'))   //put by delete     ~~e.g.~~
+                    ? -1
+                    : 0
 }

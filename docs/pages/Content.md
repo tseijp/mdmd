@@ -13,20 +13,23 @@
 
 ***
 
->>>__Button Usage__
+>>>Badge Usage__
 >>>```
 >>>[_Default Badge_]()
->>>  
->>>[__Default Button__]()
->>>  
->>>  
->>>[___Outline Buttton___]()
 >>>```
 >
 >>>__Examples__  
 >>>[_Default Badge_]()  
+
+***
+
+>>>__Button Usage__
+>>>```
+>>>[__Default Button__]()
+>>>```
+>
+>>>__Examples__  
 >>>[__Default Button__]()  
->>>[___Outline Button___]()  
 
 ***  
 

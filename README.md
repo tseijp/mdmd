@@ -58,7 +58,7 @@ const App =()=> <Mdmd md={MyText}/>
 # Install via npm
 - create your project - `create-react-app myproject`
 - `cd myproject`
-- `npm i @tsei/mdmd -S`
+- `npm i @tsei/mdmd mdbreact -S`
 - Import style files into the src/index.js before the App.js file:
 ```js
 import '@fortawesome/fontawesome-free/css/all.min.css';

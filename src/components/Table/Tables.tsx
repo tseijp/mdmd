@@ -11,8 +11,8 @@ export const Tables:FC<TableProps> = ({
         //sorting  :true ,//error TODO
         striped  =true ,
         small    =true ,
-        indexProps={}, data={},
-        children, className='', color='', style={}
+        data={},
+        className='', color='', style={}
     }) => {
     const tableState = {bordered,maxHeight,paging,searching,scrollX,scrollY,small,striped}; //sorting TODO
     const state = {data,className,color,style,...tableState}

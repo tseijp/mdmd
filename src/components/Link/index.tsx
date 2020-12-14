@@ -9,11 +9,7 @@ export const Link:FC<LinkProps> = ({
     }) => {
     const level = getLevel(children as RC)
     const onClick=useCallback(()=>window.open(href, '_blank', 'noopener noreferrer'),[href])
-    return (level>0)
+    return level > 0
     ? <Button {...{level,social,href,onClick,children,className,color,style}} />
     : <span {...{onClick,className,style}}><u>{children}</u></span>;
 };
-/* props
-  - children
-  - href "/docs"
-*/

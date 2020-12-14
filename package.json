@@ -1,7 +1,7 @@
 {
   "name": "@tsei/mdmd",
   "homepage": "/",
-  "version": "2.0.3",
+  "version": "2.1.1",
   "module": "index.js",
   "types": "index.d.ts",
   "main": "index.cjs.js",
@@ -23,9 +23,14 @@
     "card",
     "grid"
   ],
-  "dependencies": {
+  "peerDependencies": {
+    "react": ">=16.8",
     "mdbreact": "^4.27.0",
-    "react": "^16.13.1",
+    "react-dom": ">=16.8"
+  },
+  "dependencies": {
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "highlight.js": "^10.4.1",
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
     "react-syntax-highlighter": "^12.2.1",
@@ -60,11 +65,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/highlight.js": "^10.1.0",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.50",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "cross-env": "^7.0.2",
+    "mdbreact": "^4.27.0",
+    "react": "^16.13.1",
     "react-ace": "^9.1.1",
     "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
