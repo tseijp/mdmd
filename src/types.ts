@@ -29,7 +29,7 @@ export interface CodeProps extends BaseProps {
     value   ?:string,
     language?:string,
     inline  ?:boolean,
-    dark    ?:boolean,
+    dark    ?:boolean|number,
 }
 export interface ImageProps extends BaseProps {
     src   ?:string,
