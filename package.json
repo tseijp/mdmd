@@ -1,11 +1,27 @@
 {
-  "name": "mdmd",
-  "version": "1.0.0",
-  "description": "React Markdown with Material design",
-  "main": "index.js",
-  "author": "tseijp",
-  "license": "MIT",
-  "dependencies": {
-    "@changesets/cli": "^2.21.1"
-  }
+    "bugs": "https://github.com/tseijp/mdmd/issues/",
+    "homepage": "https://tseijp./github.io/mdmd/",
+    "repository": "https://github.com/tseijp/mdmd/",
+    "description": "React Ⅿarkⅾown with Ⅿaterial Ⅾesign",
+    "maintainers": [
+        "tseijp (https://github.com/tseijp)"
+    ],
+    "keywords": [
+        "react-component",
+        "react",
+        "markdown",
+        "material-ui",
+        "material design",
+        "bootstrap",
+        "button",
+        "card",
+        "grid"
+    ],
+    "name": "mdmd",
+    "author": "tsei",
+    "license": "MIT",
+    "version": "1.0.0",
+    "dependencies": {
+        "@changesets/cli": "^2.21.1"
+    }
 }
