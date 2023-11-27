@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="https://tsei.jp/mdmd/basic" target="_blank">
-    <img width="700" src="https://res.cloudinary.com/dpimrj9cp/image/upload/c_scale,w_1000/v1588494236/MDMD.png" alt="page"/>
+    <img alt="♏" width="700px" src="https://res.cloudinary.com/dpimrj9cp/image/upload/c_scale,w_1000/v1588494236/MDMD.png" alt="page"/>
   </a>
 </p>
 
