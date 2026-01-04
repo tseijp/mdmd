@@ -30,11 +30,11 @@
 
 ## Table of Contents
 
-- [Demo](#Demo)  
-- [Version](#version)  
+- [Demo](#demo)
+- [Version](#version)
 - [Simple Example](#simple-example)
-- [Quick Started](#quick-started)  
-- [Install via npm](#install-via-npm)  
+- [Quick Started](#quick-started)
+- [Install via npm](#install-via-npm)
 
 ## Demo
 
@@ -49,9 +49,9 @@
 ## Simple Example
 
 ```js
-import Mdmd from 'mdmd';
-import MyText from './MyText.md';
-const App =()=> <Mdmd md={MyText}/>
+import Mdmd from 'mdmd'
+import MyText from './MyText.md'
+const App = () => <Mdmd md={MyText} />
 ```
 
 ## Quick Started
@@ -70,7 +70,7 @@ const App =()=> <Mdmd md={MyText}/>
 - Import style files into the src/index.js before the App.js file:
 
 ```js
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-css-only/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbreact/dist/css/mdb.css'
 ```
